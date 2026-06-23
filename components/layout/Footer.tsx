@@ -23,7 +23,7 @@ export default function Footer() {
             </svg>
             <div className="flex flex-col leading-none">
               <span className="font-display text-lg font-extrabold uppercase tracking-tight text-white">
-                TECHSUPPORT<span className="text-[#CB2957]">SITES</span>
+                SCOPATE<span className="text-[#CB2957]">ITALIANE</span>
               </span>
               <span className="font-sans text-[9px] uppercase tracking-widest text-neutral-500 font-bold">
                 Enterprise Engineering
