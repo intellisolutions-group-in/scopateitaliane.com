@@ -40,7 +40,7 @@ export const featuredPost: BlogPost = {
     name: "Dr. Eshaan Varma",
     role: "Principal Systems Architect",
     image: "/images/headshot_male.png",
-    bio: "Eshaan specializes in distributed systems and high-throughput computing. Prior to TechSupportSites, he designed algorithmic trading platforms for tier-one investment banks."
+    bio: "Eshaan specializes in distributed systems and high-throughput computing. Prior to ScopateItaliane, he designed algorithmic trading platforms for tier-one investment banks."
   },
   introduction: "The shift from monolithic architectures to multi-cloud platforms has fundamentally altered how enterprise applications scale. However, in mission-critical environments, traditional redundancy patterns often introduce unacceptable latency and synchronization overheads. This paper details a hybrid approach to multi-cloud orchestration designed for sub-millisecond execution and fault isolation.",
   sections: [

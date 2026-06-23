@@ -50,7 +50,7 @@ export default function Page() {
               </div>
               <p className="font-display text-xl font-bold uppercase text-white mb-sm">Partner</p>
               <p className="font-sans text-sm text-on-surface-variant mb-lg leading-relaxed">Discuss architectural strategy and platform integration for your organization.</p>
-              <a className="font-sans text-xs uppercase tracking-widest text-primary border-b-2 border-neutral-200 hover:text-secondary hover:border-secondary pb-1 inline-block font-bold transition-all" href="mailto:info@techsupportsites.com">info@techsupportsites.com</a>
+              <a className="font-sans text-xs uppercase tracking-widest text-primary border-b-2 border-neutral-200 hover:text-secondary hover:border-secondary pb-1 inline-block font-bold transition-all" href="mailto:info@scopateitaliane.com">info@scopateitaliane.com</a>
             </div>
 
             <div className="p-xl border-b md:border-b-0 md:border-r border-neutral-200/80 hover:bg-neutral-50 transition-colors duration-300 text-primary">
@@ -60,7 +60,7 @@ export default function Page() {
               </div>
               <p className="font-display text-xl font-bold uppercase text-white mb-sm">Resolve</p>
               <p className="font-sans text-sm text-on-surface-variant mb-lg leading-relaxed">24/7 access to tier-3 engineering support for critical infrastructure issues.</p>
-              <a className="font-sans text-xs uppercase tracking-widest text-primary border-b-2 border-neutral-200 hover:text-secondary hover:border-secondary pb-1 inline-block font-bold transition-all" href="mailto:info@techsupportsites.com">info@techsupportsites.com</a>
+              <a className="font-sans text-xs uppercase tracking-widest text-primary border-b-2 border-neutral-200 hover:text-secondary hover:border-secondary pb-1 inline-block font-bold transition-all" href="mailto:info@scopateitaliane.com">info@scopateitaliane.com</a>
             </div>
 
             <div className="p-xl hover:bg-neutral-50 transition-colors duration-300 text-primary">

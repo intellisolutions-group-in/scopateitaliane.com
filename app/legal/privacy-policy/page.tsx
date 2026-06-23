@@ -39,7 +39,7 @@ export default function Page() {
           <article className="prose prose-slate max-w-none space-y-xl">
             <section id="introduction" className="scroll-mt-[100px]">
               <p className="font-sans text-md text-on-surface mb-md leading-relaxed">
-                TechSupportSites ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our enterprise engineering services.
+                ScopateItaliane ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our enterprise engineering services.
               </p>
               <p className="font-sans text-sm text-on-surface-variant leading-relaxed">
                 Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.

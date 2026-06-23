@@ -14,7 +14,7 @@ export default function Page() {
             Open Requisitions
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant mt-md">
-            Explore active career openings at TechSupportSites. Join our remote-first team of senior engineers and digital builders.
+            Explore active career openings at ScopateItaliane. Join our remote-first team of senior engineers and digital builders.
           </p>
           <div className="flex flex-wrap gap-md mt-xl">
             <Link 

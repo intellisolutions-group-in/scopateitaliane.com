@@ -14,7 +14,7 @@ export default function Page() {
 <div className="col-span-4 md:col-span-10 md:col-start-2 text-center">
 <h1 className="gsap-hero-animate font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-lg">Engineering Excellence, Verified.</h1>
 <p className="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-xl">
-                        Industry leaders rely on our technical precision and strategic vision. Don't just take our word for it—listen to the partners who have transformed their enterprise architecture with TechSupportSites.
+                        Industry leaders rely on our technical precision and strategic vision. Don't just take our word for it—listen to the partners who have transformed their enterprise architecture with ScopateItaliane.
                     </p>
 </div>
 </div>
@@ -96,7 +96,7 @@ export default function Page() {
 
 <div className="break-inside-avoid border border-neutral-200/80 bg-white p-xl flex flex-col hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] hover:-translate-y-1 transition-all duration-300 rounded-2xl text-primary">
 <span className="material-symbols-outlined text-secondary mb-md text-4xl" data-icon="format_quote">format_quote</span>
-<p className="font-body-lg text-body-lg mb-xl text-on-surface-variant">"TechSupportSites engineers don't just write code; they build highly resilient systems. When our primary data center went offline, their failover protocols executed flawlessly. Not a single transaction was lost."</p>
+<p className="font-body-lg text-body-lg mb-xl text-on-surface-variant">"ScopateItaliane engineers don't just write code; they build highly resilient systems. When our primary data center went offline, their failover protocols executed flawlessly. Not a single transaction was lost."</p>
 <div className="mt-auto flex items-center gap-md border-t border-neutral-200/80 pt-md">
 <div className="w-12 h-12 rounded-full overflow-hidden bg-neutral-50 border border-neutral-200/80">
 <img alt="Manish Jagtiani" className="w-full h-full object-cover" data-alt="Manish Jagtiani" src="/images/headshot_male.png" />

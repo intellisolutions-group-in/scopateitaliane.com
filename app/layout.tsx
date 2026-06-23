@@ -14,7 +14,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "TechSupportSites | Precision Enterprise Engineering",
+  title: "ScopateItaliane | Precision Enterprise Engineering",
   description: "Precision software development, cloud infrastructure, AI integrations, and technical consulting.",
 };
 

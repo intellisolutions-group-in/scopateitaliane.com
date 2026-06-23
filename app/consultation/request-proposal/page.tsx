@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-neutral-200/80">
-<Link className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary" href="/contact">TechSupportSites</Link>
+<Link className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary" href="/contact">ScopateItaliane</Link>
 <div className="flex items-center gap-md">
 <span className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hidden md:inline-block">Secure Checkout</span>
 <span className="material-symbols-outlined" data-icon="lock" data-weight="fill" style={{fontVariationSettings: '"FILL" 1'}}>lock</span>

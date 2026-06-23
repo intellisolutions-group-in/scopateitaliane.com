@@ -164,7 +164,7 @@ export default function Footer() {
                 textTransform: "uppercase"
               }}
             >
-              TECHSUPPORTSITES
+              SCOPATEITALIANE
             </text>
           </svg>
         </div>
@@ -192,7 +192,7 @@ export default function Footer() {
       {/* Copyright Bar */}
       <div className="max-w-5xl mx-auto border-t border-neutral-900/60 pt-6 mt-4 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-neutral-500">
         <p className="text-center md:text-left font-sans">
-          © 2004 - {new Date().getFullYear()} TechSupportSites. All rights reserved. Precision Enterprise Engineering.
+          © 2004 - {new Date().getFullYear()} ScopateItaliane. All rights reserved. Precision Enterprise Engineering.
         </p>
         <div className="flex items-center gap-6">
           <div className="flex gap-4">

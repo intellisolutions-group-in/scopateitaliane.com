@@ -112,7 +112,7 @@ export default function Page() {
 <div className="border-l-2 border-secondary pl-xl py-md">
 <span className="material-symbols-outlined text-[48px] text-neutral-500 mb-md block">format_quote</span>
 <blockquote className="font-headline-xl text-headline-xl text-primary mb-lg leading-tight">
-                     "TechSupportSites delivered an architecture that transformed our liability into an asset. Their engineering precision is unmatched in the healthcare space."
+                     "ScopateItaliane delivered an architecture that transformed our liability into an asset. Their engineering precision is unmatched in the healthcare space."
                  </blockquote>
 <div className="flex items-center gap-md">
 <div className="w-12 h-12 bg-white border border-neutral-200/80 overflow-hidden">

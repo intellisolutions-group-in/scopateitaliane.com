@@ -5,7 +5,7 @@ import { jobRequisitions } from "./careers/careersData";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://techsupportsites.com";
+  const baseUrl = "https://scopateitaliane.com";
 
   // Static routes
   const staticRoutes = [
@@ -16,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/careers",
     "/careers/internships",
     "/careers/jobs",
-    "/careers/life-at-tech-support-sites",
+    "/careers/life-at-scopateitaliane",
     "/case-studies",
     "/case-studies/ai-business-automation",
     "/case-studies/cloud-migration-program",

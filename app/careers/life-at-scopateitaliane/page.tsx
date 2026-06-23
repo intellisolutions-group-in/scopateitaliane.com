@@ -39,7 +39,7 @@ export default function Page() {
           <ThreeHeroBg />
           <div className="gsap-stagger-container grid grid-cols-1 md:grid-cols-12 gap-gutter items-center z-10 relative">
             <div className="md:col-span-8 flex flex-col gap-lg">
-              <p className="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Life at TechSupportSites</p>
+              <p className="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Life at ScopateItaliane</p>
               <h1 className="gsap-hero-animate font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-primary animate-in fade-in slide-in-from-left duration-700">
                 Engineering Excellence is a Culture
               </h1>

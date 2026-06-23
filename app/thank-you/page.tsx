@@ -8,7 +8,7 @@ export default function Page() {
       <header className="w-full px-4 md:px-margin-desktop py-xl border-b border-neutral-200/80 bg-surface/80 backdrop-blur-md sticky top-0 z-40 shadow-sm">
         <div className="max-w-container-max mx-auto flex items-center justify-between">
           <Link href="/" className="font-display text-2xl font-bold tracking-tighter text-primary hover:text-secondary transition-colors">
-            TechSupportSites
+            ScopateItaliane
           </Link>
           <Link className="font-sans text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors flex items-center gap-sm font-bold bg-neutral-100 hover:bg-neutral-200/80 py-2 px-4 rounded-full" href="/">
             <span className="material-symbols-outlined text-[18px]">close</span>

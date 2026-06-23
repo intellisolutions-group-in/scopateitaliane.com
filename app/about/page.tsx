@@ -44,7 +44,7 @@ export default function Page() {
                 Engineering Reliability <br /> at Enterprise Scale.
               </h1>
               <p className="gsap-hero-animate font-sans text-md md:text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-                We don't just solve problems; we architect resilient systems. TechSupportSites exists to bridge the gap between complex technical debt and streamlined, future-proof operational excellence.
+                We don't just solve problems; we architect resilient systems. ScopateItaliane exists to bridge the gap between complex technical debt and streamlined, future-proof operational excellence.
               </p>
             </div>
             <div className="col-span-12 md:col-span-4 flex items-end justify-end mt-xl md:mt-0 animate-in fade-in slide-in-from-right duration-700">
@@ -155,7 +155,7 @@ export default function Page() {
 
           <div className="relative border-l-2 border-neutral-200/60 ml-4 md:ml-8 pl-8 md:pl-12 py-4 space-y-xl z-10">
             {[
-              { year: "2004", title: "Zürich Foundation", desc: "TechSupportSites is established in Zürich, Switzerland, specializing in high-availability UNIX server clustering and redundant datacenter design.", icon: "home" },
+              { year: "2004", title: "Zürich Foundation", desc: "ScopateItaliane is established in Zürich, Switzerland, specializing in high-availability UNIX server clustering and redundant datacenter design.", icon: "home" },
               { year: "2009", title: "DevOps & Cloud Acceleration", desc: "Opened Munich office. Built our first Kubernetes cluster automation systems and type-safe API gateways for logistics clients.", icon: "cloud_done" },
               { year: "2014", title: "IIoT Twin Division", desc: "Launched predictive telemetry pipelines for heavy manufacturing plants, syncing over 50,000 active Edge nodes to dynamic timeseries databases.", icon: "precision_manufacturing" },
               { year: "2024", title: "Active-Active Global Scale", desc: "Deployed synchronous multi-region, zero-data-loss databases across Europe, US, and Asia, running under sub-45ms SLA response bounds.", icon: "public" }

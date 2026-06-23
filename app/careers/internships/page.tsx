@@ -14,7 +14,7 @@ export default function Page() {
             Internship Programs
           </h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant mt-md">
-            Join TechSupportSites as an intern. Work with Tier-3 architects, build enterprise-grade infrastructure, and accelerate your engineering career.
+            Join ScopateItaliane as an intern. Work with Tier-3 architects, build enterprise-grade infrastructure, and accelerate your engineering career.
           </p>
           <div className="flex flex-wrap gap-md mt-xl">
             <Link 

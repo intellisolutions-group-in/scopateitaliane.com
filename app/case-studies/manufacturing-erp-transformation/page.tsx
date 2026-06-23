@@ -140,7 +140,7 @@ export default function Page() {
 <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-7 mt-xl lg:mt-0 relative">
 <span className="material-symbols-outlined text-secondary text-9xl absolute -top-8 -left-8 opacity-20 pointer-events-none">format_quote</span>
 <div className="border border-neutral-200/80 p-xl relative z-10 bg-primary/50 backdrop-blur-sm rounded-2xl">
-<p className="font-headline-md text-headline-md text-primary mb-xl leading-snug">"TechSupportSites didn't just install software; they engineered a fundamental shift in how we process reality on the factory floor. The architectural rigor they brought was exactly what our enterprise needed."</p>
+<p className="font-headline-md text-headline-md text-primary mb-xl leading-snug">"ScopateItaliane didn't just install software; they engineered a fundamental shift in how we process reality on the factory floor. The architectural rigor they brought was exactly what our enterprise needed."</p>
 <div className="flex items-center gap-md pt-lg border-t border-neutral-200/80">
 <div className="w-12 h-12 bg-neutral-50 rounded-full border border-neutral-200/80 flex items-center justify-center">
 <span className="material-symbols-outlined text-primary">person</span>

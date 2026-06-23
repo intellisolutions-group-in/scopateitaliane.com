@@ -80,7 +80,7 @@ export default function TopNavBar({ active }: TopNavBarProps) {
           href="/" 
           className="font-display text-lg font-bold tracking-tighter text-primary hover:text-secondary transition-colors"
         >
-          TechSupportSites<span className="text-secondary">.</span>
+          ScopateItaliane<span className="text-secondary">.</span>
         </Link>
 
         {/* Desktop Links */}

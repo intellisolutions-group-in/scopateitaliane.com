@@ -46,7 +46,7 @@ export default function Page() {
           <ThreeHeroBg />
           <div className="gsap-stagger-container grid grid-cols-1 md:grid-cols-12 gap-gutter items-center z-10 relative">
             <div className="md:col-span-7 pr-0 md:pr-xl">
-              <span className="font-sans text-xs uppercase tracking-widest text-secondary font-bold mb-sm block">Join TechSupportSites</span>
+              <span className="font-sans text-xs uppercase tracking-widest text-secondary font-bold mb-sm block">Join ScopateItaliane</span>
               <h1 className="gsap-hero-animate font-display text-4xl md:text-display-lg uppercase font-bold tracking-tighter text-primary mb-lg leading-tight">
                 Engineering Excellence.
               </h1>
@@ -57,7 +57,7 @@ export default function Page() {
                 <Link className="bg-secondary text-white px-lg py-md text-center font-sans text-xs uppercase tracking-widest hover:bg-primary transition-colors border border-secondary font-bold rounded-full" href="#jobs">
                   View Open Roles
                 </Link>
-                <Link className="bg-transparent text-primary px-lg py-md text-center font-sans text-xs uppercase tracking-widest border border-neutral-200/80 hover:bg-surface-container transition-colors font-bold rounded-full" href="/careers/life-at-tech-support-sites">
+                <Link className="bg-transparent text-primary px-lg py-md text-center font-sans text-xs uppercase tracking-widest border border-neutral-200/80 hover:bg-surface-container transition-colors font-bold rounded-full" href="/careers/life-at-scopateitaliane">
                   Our Culture & Life
                 </Link>
               </div>
@@ -202,7 +202,7 @@ export default function Page() {
               >
                 <div className="font-sans text-xs uppercase tracking-widest text-secondary font-bold mb-sm">06</div>
                 <h4 className="font-sans text-sm font-bold text-primary mb-xs">Offer</h4>
-                <p className="text-xs text-on-surface-variant leading-relaxed">Welcome to TechSupportSites.</p>
+                <p className="text-xs text-on-surface-variant leading-relaxed">Welcome to ScopateItaliane.</p>
               </div>
             </div>
           </div>
