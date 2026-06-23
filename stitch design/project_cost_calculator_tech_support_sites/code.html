@@ -1,0 +1,400 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/calculator/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-primary-container": "#848484",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "outline-variant": "#cfc4c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-container": "#5a001e",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-container": "#838484",
+                        "on-secondary-fixed": "#400013",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "on-secondary-fixed-variant": "#900036",
+                        "primary-container": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffd9dd",
+                        "secondary": "#b8174a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "columns": "12",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "huge": "80px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .calculator-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        .step-transition { transition: all 0.3s ease; }
+        .feature-card { transition: border-color 0.2s, background-color 0.2s; }
+        .feature-card.selected { border-color: #000000; background-color: #f4f3f3; }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #000000;
+            cursor: pointer;
+            margin-top: -10px;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #dadada;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-primary dark:border-outline">
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary">
+            TechSupportSites
+        </div>
+<div class="hidden md:flex space-x-lg">
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest transition-colors duration-200 hover:bg-surface-container-high px-md py-sm" href="#">Services</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest transition-colors duration-200 hover:bg-surface-container-high px-md py-sm" href="#">Industries</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest transition-colors duration-200 hover:bg-surface-container-high px-md py-sm" href="#">Insights</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest transition-colors duration-200 hover:bg-surface-container-high px-md py-sm" href="#">About</a>
+</div>
+<div class="flex items-center space-x-md">
+<span class="material-symbols-outlined text-primary cursor-pointer hidden md:block">search</span>
+<button class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-lg py-sm hover:opacity-80 transition-opacity">Consultation</button>
+<span class="material-symbols-outlined text-primary cursor-pointer md:hidden">menu</span>
+</div>
+</nav>
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="w-full px-margin-mobile md:px-margin-desktop py-huge md:py-xxl max-w-container-max mx-auto text-center border-b border-surface-dim">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md">Calculate Your Infrastructure Investment</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Get a real-time estimate for your next major engineering initiative. Select your requirements below to configure a high-level budget.</p>
+</section>
+<!-- Calculator Section -->
+<section class="w-full px-margin-mobile md:px-margin-desktop py-huge max-w-container-max mx-auto calculator-grid items-start">
+<!-- Left Column: Steps -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-xxl pr-0 lg:pr-xl border-b lg:border-b-0 lg:border-r border-surface-dim pb-xxl lg:pb-0">
+<!-- Step 1: Project Type -->
+<div class="step-section">
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-primary text-on-primary w-8 h-8 flex items-center justify-center font-label-sm text-label-sm rounded-none">01</span>
+<h2 class="font-headline-md text-headline-md text-primary">Project Type</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<label class="feature-card border p-lg cursor-pointer flex flex-col items-center text-center gap-sm hover:bg-surface-container-low group selected border-primary bg-surface-container-low">
+<input checked="" class="sr-only" name="projectType" onchange="updateTotal()" type="radio" value="50000">
+<span class="material-symbols-outlined text-[32px] text-primary group-[.selected]:text-secondary">web</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Web Application</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm mt-auto">React, Angular, Vue</span>
+</label>
+<label class="feature-card border border-surface-dim p-lg cursor-pointer flex flex-col items-center text-center gap-sm hover:bg-surface-container-low group">
+<input class="sr-only" name="projectType" onchange="updateTotal()" type="radio" value="75000">
+<span class="material-symbols-outlined text-[32px] text-primary">smartphone</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Mobile App</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm mt-auto">iOS, Android, React Native</span>
+</label>
+<label class="feature-card border border-surface-dim p-lg cursor-pointer flex flex-col items-center text-center gap-sm hover:bg-surface-container-low group">
+<input class="sr-only" name="projectType" onchange="updateTotal()" type="radio" value="120000">
+<span class="material-symbols-outlined text-[32px] text-primary">memory</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">AI / Machine Learning</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm mt-auto">LLMs, Predictive Models</span>
+</label>
+</div>
+</div>
+<!-- Step 2: Features -->
+<div class="step-section">
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-primary text-on-primary w-8 h-8 flex items-center justify-center font-label-sm text-label-sm rounded-none">02</span>
+<h2 class="font-headline-md text-headline-md text-primary">Core Features</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<label class="feature-card border border-surface-dim p-md cursor-pointer flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-md">
+<input class="feature-checkbox form-checkbox h-5 w-5 text-primary border-surface-dim rounded-none focus:ring-0 focus:ring-offset-0" onchange="updateTotal()" type="checkbox" value="15000">
+<span class="font-body-md text-body-md text-primary">User Authentication &amp; SSO</span>
+</div>
+</label>
+<label class="feature-card border border-surface-dim p-md cursor-pointer flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-md">
+<input class="feature-checkbox form-checkbox h-5 w-5 text-primary border-surface-dim rounded-none focus:ring-0 focus:ring-offset-0" onchange="updateTotal()" type="checkbox" value="25000">
+<span class="font-body-md text-body-md text-primary">Real-time Data Sync</span>
+</div>
+</label>
+<label class="feature-card border border-surface-dim p-md cursor-pointer flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-md">
+<input class="feature-checkbox form-checkbox h-5 w-5 text-primary border-surface-dim rounded-none focus:ring-0 focus:ring-offset-0" onchange="updateTotal()" type="checkbox" value="20000">
+<span class="font-body-md text-body-md text-primary">Payment Gateway Integration</span>
+</div>
+</label>
+<label class="feature-card border border-surface-dim p-md cursor-pointer flex items-center justify-between hover:bg-surface-container-low">
+<div class="flex items-center gap-md">
+<input class="feature-checkbox form-checkbox h-5 w-5 text-primary border-surface-dim rounded-none focus:ring-0 focus:ring-offset-0" onchange="updateTotal()" type="checkbox" value="35000">
+<span class="font-body-md text-body-md text-primary">Complex Data Visualization</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Step 3: Technology Selection -->
+<div class="step-section">
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-primary text-on-primary w-8 h-8 flex items-center justify-center font-label-sm text-label-sm rounded-none">03</span>
+<h2 class="font-headline-md text-headline-md text-primary">Cloud Infrastructure</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<label class="feature-card border p-md cursor-pointer flex flex-col gap-xs hover:bg-surface-container-low group selected border-primary bg-surface-container-low">
+<input checked="" class="sr-only" name="cloudProvider" onchange="updateTotal()" type="radio" value="1.0">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Amazon Web Services</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Industry standard scalable infrastructure</span>
+</label>
+<label class="feature-card border border-surface-dim p-md cursor-pointer flex flex-col gap-xs hover:bg-surface-container-low group">
+<input class="sr-only" name="cloudProvider" onchange="updateTotal()" type="radio" value="1.05">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Microsoft Azure</span>
+<span class="font-body-md text-body-md text-on-surface-variant text-sm">Enterprise integrated cloud solutions</span>
+</label>
+</div>
+</div>
+<!-- Step 4: Timeline -->
+<div class="step-section">
+<div class="flex items-center gap-sm mb-lg">
+<span class="bg-primary text-on-primary w-8 h-8 flex items-center justify-center font-label-sm text-label-sm rounded-none">04</span>
+<h2 class="font-headline-md text-headline-md text-primary">Estimated Timeline</h2>
+</div>
+<div class="border border-surface-dim p-lg flex flex-col gap-lg">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-primary">Speed vs Cost Trade-off</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" id="timelineValue">Normal (1x Cost)</span>
+</div>
+<input id="timelineMultiplier" max="1.5" min="0.8" oninput="updateTotal()" step="0.1" type="range" value="1.0">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Slower (-20%)</span>
+<span class="">Standard</span>
+<span class="">Expedited (+50%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Budget Output Sticky -->
+<div class="col-span-12 lg:col-span-4 sticky top-[120px] bg-surface p-lg border border-primary flex flex-col gap-lg">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-surface-dim pb-md">Estimated Budget</h3>
+<div class="flex flex-col gap-sm">
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Base Cost</span>
+<span id="baseCostDisplay" class="">$50,000</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Features</span>
+<span id="featuresCostDisplay" class="">$0</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span class="">Timeline Modifier</span>
+<span id="timelineModDisplay" class="">x1.0</span>
+</div>
+</div>
+<div class="border-t border-primary pt-md mt-sm">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-xs">Estimated Range</p>
+<div class="font-display-lg-mobile md:font-headline-xl text-display-lg-mobile md:text-headline-xl text-primary font-bold">
+                        $<span id="totalLow" class="">43k</span> - $<span id="totalHigh" class="">58k</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-xs">Final quote subject to detailed scoping.</p>
+</div>
+<div class="flex flex-col gap-md mt-md">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-lg py-md hover:opacity-80 transition-opacity w-full text-center flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">download</span> Download Quote
+                    </button>
+<button class="bg-secondary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-lg py-md hover:opacity-90 transition-opacity w-full text-center flex justify-center items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span> Consult with an Architect
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-tertiary-container w-full py-xxl px-margin-mobile md:px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto border-t border-primary dark:border-outline-variant mt-auto">
+<div class="col-span-12 md:col-span-4 flex flex-col gap-lg">
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary dark:text-on-tertiary-container font-bold tracking-tighter">
+                TechSupportSites
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container">© 2024 TechSupportSites. All rights reserved. Precision Engineering for Enterprise.</p>
+</div>
+<div class="col-span-6 md:col-span-4 flex flex-col gap-md">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Software Engineering</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Cloud Strategy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Cybersecurity</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">AI Integration</a>
+</div>
+<div class="col-span-6 md:col-span-4 flex flex-col gap-md">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Security Disclosure</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Contact</a>
+</div>
+</footer>
+<script>
+        function formatCurrency(num) {
+            return num >= 1000 ? (num / 1000).toFixed(0) + 'k' : num;
+        }
+
+        function updateTotal() {
+            // Get base cost from project type
+            const typeRadios = document.getElementsByName('projectType');
+            let baseCost = 0;
+            typeRadios.forEach(radio => {
+                const label = radio.closest('.feature-card');
+                if (radio.checked) {
+                    baseCost = parseInt(radio.value);
+                    label.classList.add('selected', 'border-primary', 'bg-surface-container-low');
+                    label.classList.remove('border-surface-dim');
+                } else {
+                    label.classList.remove('selected', 'border-primary', 'bg-surface-container-low');
+                    label.classList.add('border-surface-dim');
+                }
+            });
+
+            // Get features cost
+            const featureCheckboxes = document.querySelectorAll('.feature-checkbox');
+            let featuresCost = 0;
+            featureCheckboxes.forEach(cb => {
+                const label = cb.closest('.feature-card');
+                if (cb.checked) {
+                    featuresCost += parseInt(cb.value);
+                    label.classList.add('selected', 'border-primary', 'bg-surface-container-low');
+                    label.classList.remove('border-surface-dim');
+                } else {
+                    label.classList.remove('selected', 'border-primary', 'bg-surface-container-low');
+                    label.classList.add('border-surface-dim');
+                }
+            });
+
+            // Get Cloud Provider multiplier
+            const cloudRadios = document.getElementsByName('cloudProvider');
+            let cloudMultiplier = 1.0;
+            cloudRadios.forEach(radio => {
+                const label = radio.closest('.feature-card');
+                if (radio.checked) {
+                    cloudMultiplier = parseFloat(radio.value);
+                    label.classList.add('selected', 'border-primary', 'bg-surface-container-low');
+                    label.classList.remove('border-surface-dim');
+                } else {
+                    label.classList.remove('selected', 'border-primary', 'bg-surface-container-low');
+                    label.classList.add('border-surface-dim');
+                }
+            });
+
+            // Get timeline multiplier
+            const timelineSlider = document.getElementById('timelineMultiplier');
+            const timelineMod = parseFloat(timelineSlider.value);
+            
+            // Update timeline label
+            const timelineLabel = document.getElementById('timelineValue');
+            if(timelineMod < 1.0) timelineLabel.innerText = `Slower (${timelineMod}x Cost)`;
+            else if(timelineMod > 1.0) timelineLabel.innerText = `Expedited (${timelineMod}x Cost)`;
+            else timelineLabel.innerText = `Normal (1x Cost)`;
+
+            // Calculate totals
+            const subtotal = (baseCost + featuresCost) * cloudMultiplier;
+            const finalTarget = subtotal * timelineMod;
+            
+            // Create range (±15%)
+            const lowEnd = Math.floor(finalTarget * 0.85);
+            const highEnd = Math.ceil(finalTarget * 1.15);
+
+            // Update displays
+            document.getElementById('baseCostDisplay').innerText = '$' + baseCost.toLocaleString();
+            document.getElementById('featuresCostDisplay').innerText = '$' + featuresCost.toLocaleString();
+            document.getElementById('timelineModDisplay').innerText = 'x' + timelineMod.toFixed(1);
+            
+            document.getElementById('totalLow').innerText = formatCurrency(lowEnd);
+            document.getElementById('totalHigh').innerText = formatCurrency(highEnd);
+        }
+
+        // Initialize calculation on load
+        document.addEventListener('DOMContentLoaded', updateTotal);
+    </script>
+
+
+</body></html>

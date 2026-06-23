@@ -1,0 +1,334 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "outline-variant": "#cfc4c5",
+                        "inverse-on-surface": "#f1f1f0",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "primary-fixed": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "tertiary": "#000000",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-tertiary-container": "#838484",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#1a1c1c",
+                        "surface-variant": "#e2e2e2",
+                        "background": "#f9f9f9",
+                        "on-secondary-container": "#5a001e",
+                        "primary-container": "#1b1b1b",
+                        "on-primary-fixed": "#1b1b1b",
+                        "secondary": "#b8174a",
+                        "surface-tint": "#5e5e5e",
+                        "surface-dim": "#dadada",
+                        "on-background": "#1a1c1c",
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary-container": "#848484",
+                        "surface-container-low": "#f4f3f3",
+                        "surface": "#f9f9f9",
+                        "primary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#4c4546",
+                        "secondary-fixed": "#ffd9dd",
+                        "inverse-primary": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary-fixed": "#400013",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#900036",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "base": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xxl": "48px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "columns": "12",
+                        "huge": "80px",
+                        "xl": "32px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom overrides to enforce strict Swiss Modernism styling */
+        body {
+            background-color: #EEEEEE;
+            color: #000000;
+        }
+        
+        /* Enforce sharp corners everywhere */
+        * {
+            border-radius: 0 !important;
+        }
+        
+        /* Specific accent colors based on guidance */
+        .accent-text { color: #CB2957; }
+        .accent-bg { background-color: #CB2957; color: #FFFFFF; }
+        .accent-border { border-color: #CB2957; }
+        
+        /* Monochromatic border framework */
+        .border-mono { border-color: #000000; }
+        .border-light { border-color: #DDDDDD; }
+        
+        /* Focus state indicator */
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-bottom: 2px solid #CB2957 !important;
+        }
+    </style>
+</head>
+<body class="bg-surface-container text-primary font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-secondary selection:text-white">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-desktop h-huge bg-surface border-b border-primary dark:border-outline">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary dark:text-on-primary" href="#">
+            TechSupportSites
+        </a>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-sm text-label-sm text-secondary border-b-2 border-secondary pb-1 opacity-80 transition-opacity" href="#">Services</a>
+<a class="font-label-sm text-label-sm text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-2 py-1" href="#">Industries</a>
+<a class="font-label-sm text-label-sm text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-2 py-1" href="#">Insights</a>
+<a class="font-label-sm text-label-sm text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-2 py-1" href="#">About</a>
+</div>
+<div class="flex items-center gap-md">
+<button class="hidden md:flex items-center justify-center border border-primary px-4 py-2 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined mr-2">search</span>
+<span class="font-label-sm text-label-sm uppercase">Search</span>
+</button>
+<a class="accent-bg px-[24px] py-[12px] font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary transition-colors" href="#">
+                Consultation
+            </a>
+<button class="md:hidden p-2 text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge md:py-[120px] grid grid-cols-1 md:grid-cols-12 gap-gutter items-center border-b border-light">
+<div class="col-span-1 md:col-span-8 flex flex-col gap-lg">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">
+                    Precision Engineering for <br><span class="accent-text">Enterprise Scale</span>.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-md">
+                    We architecture, build, and optimize high-performance software systems. Delivering robust technological foundations that drive operational excellence and market dominance.
+                </p>
+<div class="flex flex-wrap gap-md mt-lg">
+<a class="bg-primary text-white px-[24px] py-[12px] font-label-sm text-label-sm uppercase tracking-widest hover:bg-on-surface-variant transition-colors border border-primary" href="#">
+                        Explore Solutions
+                    </a>
+<a class="bg-transparent text-primary px-[24px] py-[12px] font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors border border-primary flex items-center gap-2" href="#">
+                        View Technology Stack
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 mt-xxl md:mt-0">
+<div class="w-full aspect-square border border-primary relative overflow-hidden bg-surface-container-low group">
+<img alt="Server room abstract" class="w-full h-full object-cover grayscale opacity-80 group-hover:scale-105 transition-transform duration-700" data-alt="A striking abstract photograph of a modern enterprise server room. The composition focuses on geometric lines and perspective, highlighting endless rows of black server racks. Subtle, cold white and deep grey tones dominate the palette, with a single, sharp line of vibrant red LED lights cutting through the darkness to indicate network activity. The lighting is harsh and high-contrast, evoking a sense of raw computational power and precision engineering within a minimalist, brutalist architectural space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIBttLq-G3x2shve7Kf3xb31HbgA1azHEDKBiwLNImxN7gK6iKH2X69YRh9YhVPrN5VZ2qnvO3h6XIEhHVEc9jhOG_z1zVBJv1twTyKMx4Pwtf5fQht6fPw-PHXavQnF12w1cJjbePu2oJrSuJhdfsAZCVnRFfGauASm8fh476deVxfTkvFWN1jFGuVsH0S36XsHKgde1-vhK8kuXU-jUr0rebJtxl-KzNwmhB4VOJPPOpfX3qi9dxdHsLEEEKY6BZiJ-GtfwSEcL6">
+<div class="absolute inset-0 border-[4px] border-transparent group-hover:border-primary transition-colors duration-300 pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 bg-surface px-3 py-1 border border-primary font-label-sm text-label-sm uppercase">System Arc_01</div>
+</div>
+</div>
+</section>
+<!-- Trust Indicators -->
+<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xxl border-b border-light">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-md text-center md:text-left">Trusted Infrastructure Partners</p>
+<div class="flex flex-wrap justify-center md:justify-between items-center gap-lg opacity-60 grayscale">
+<!-- Generic placeholders for logos -->
+<div class="font-headline-md text-headline-md tracking-tighter">CORP<span class="font-light">NET</span></div>
+<div class="font-headline-md text-headline-md tracking-tighter">GLOBAL<span class="font-light">SYS</span></div>
+<div class="font-headline-md text-headline-md tracking-tighter">DATA<span class="font-light">CORE</span></div>
+<div class="font-headline-md text-headline-md tracking-tighter">NEXUS<span class="font-light">IT</span></div>
+<div class="font-headline-md text-headline-md tracking-tighter">OMNI<span class="font-light">TECH</span></div>
+</div>
+</section>
+<!-- Featured Services Bento Grid -->
+<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge border-b border-light bg-surface">
+<div class="flex flex-col md:flex-row justify-between items-end mb-xxl gap-lg">
+<div class="max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">Core Competencies</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Strategic engineering services designed to solve complex architectural challenges and scale enterprise operations.</p>
+</div>
+<a class="font-label-sm text-label-sm uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors inline-flex items-center gap-2" href="#">
+                    All Services <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-sm">
+<!-- Large Card -->
+<div class="col-span-1 md:col-span-8 border border-primary p-lg flex flex-col justify-between min-h-[400px] bg-surface-container hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[48px] font-light text-primary group-hover:text-secondary transition-colors">architecture</span>
+<span class="font-label-sm text-label-sm border border-primary px-2 py-1 uppercase bg-surface">Primary</span>
+</div>
+<div class="mt-auto pt-huge">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Cloud Architecture &amp; Migration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">Designing resilient, scalable cloud infrastructures. Seamlessly migrating legacy systems to modern distributed environments while minimizing downtime and maximizing performance.</p>
+</div>
+</div>
+<!-- Square Card 1 -->
+<div class="col-span-1 md:col-span-4 border border-primary p-lg flex flex-col justify-between min-h-[400px] bg-surface hover:bg-surface-container transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[40px] font-light text-primary group-hover:text-secondary transition-colors">security</span>
+</div>
+<div class="mt-auto pt-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Cybersecurity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Implementing zero-trust frameworks and proactive threat mitigation protocols for enterprise data sovereignty.</p>
+</div>
+</div>
+<!-- Square Card 2 -->
+<div class="col-span-1 md:col-span-4 border border-primary p-lg flex flex-col justify-between min-h-[300px] bg-surface hover:bg-surface-container transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[40px] font-light text-primary group-hover:text-secondary transition-colors">memory</span>
+</div>
+<div class="mt-auto pt-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">AI Integration</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Embedding machine learning models into operational workflows for predictive analytics.</p>
+</div>
+</div>
+<!-- Horizontal Card -->
+<div class="col-span-1 md:col-span-8 border border-primary p-lg flex flex-col md:flex-row justify-between items-start md:items-end min-h-[300px] bg-surface hover:bg-surface-container transition-colors group relative overflow-hidden">
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px] absolute -right-10 -top-10 leading-none">terminal</span>
+</div>
+<div class="relative z-10 w-full h-full flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-[40px] font-light text-primary group-hover:text-secondary transition-colors">code_blocks</span>
+</div>
+<div class="mt-auto pt-lg md:max-w-2xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Custom Software Engineering</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Full-stack development of bespoke enterprise applications. Utilizing modern frameworks to build performant, maintainable, and secure software solutions tailored to specific business logic.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Metrics / Statistics -->
+<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge border-b border-light bg-surface-container-high">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-y-xl md:gap-y-0 divide-y md:divide-y-0 md:divide-x divide-light">
+<div class="flex flex-col items-center justify-center p-lg text-center">
+<span class="font-display-lg text-display-lg accent-text mb-sm">99.99%</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Uptime SLA Delivered</span>
+</div>
+<div class="flex flex-col items-center justify-center p-lg text-center">
+<span class="font-display-lg text-display-lg accent-text mb-sm">150+</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Enterprise Deployments</span>
+</div>
+<div class="flex flex-col items-center justify-center p-lg text-center">
+<span class="font-display-lg text-display-lg accent-text mb-sm">&lt;45ms</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Avg Latency Reduction</span>
+</div>
+<div class="flex flex-col items-center justify-center p-lg text-center">
+<span class="font-display-lg text-display-lg accent-text mb-sm">24/7</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Continuous Monitoring</span>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge bg-primary text-white text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-xl">
+<div class="max-w-2xl">
+<h2 class="font-headline-xl text-headline-xl mb-md">Ready to optimize your infrastructure?</h2>
+<p class="font-body-lg text-body-lg text-surface-dim">Engage with our senior engineering team to audit your current architecture and chart a path to scalable efficiency.</p>
+</div>
+<div>
+<a class="accent-bg px-[32px] py-[16px] font-label-sm text-label-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-colors border border-transparent hover:border-primary inline-flex items-center gap-2" href="#">
+                    Request Architecture Audit <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-tertiary-container w-full py-xxl px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto border-t border-primary dark:border-outline-variant flat no shadows transition-all duration-300 ease-in-out">
+<div class="col-span-1 md:col-span-4 flex flex-col justify-between">
+<div>
+<span class="font-display-lg text-display-lg text-primary dark:text-on-tertiary-container mb-md block">
+                    TechSupportSites
+                </span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container max-w-sm mt-md">
+                    Precision Engineering for Enterprise. We build the systems that build the future.
+                </p>
+</div>
+<div class="mt-xl font-body-md text-body-md text-on-surface-variant">
+                © 2024 TechSupportSites. All rights reserved.
+            </div>
+</div>
+<div class="col-span-1 md:col-span-2 md:col-start-7 flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Services</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Software Engineering</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Cloud Strategy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Cybersecurity</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">AI Integration</a>
+</div>
+<div class="col-span-1 md:col-span-2 flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Industries</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Financial Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Healthcare</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Retail</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Manufacturing</a>
+</div>
+<div class="col-span-1 md:col-span-2 flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Legal</h4>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 w-fit" href="#">Security Disclosure</a>
+<a class="font-body-md text-body-md text-secondary font-bold hover:underline decoration-secondary decoration-2 w-fit mt-md" href="#">Contact</a>
+</div>
+</footer>
+
+
+</body></html>

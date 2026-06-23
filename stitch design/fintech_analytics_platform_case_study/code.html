@@ -1,0 +1,270 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/case-studies/fintech-analytics-platform/page.tsx</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffd9dd",
+                        "secondary": "#b8174a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "primary-container": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "on-secondary-fixed-variant": "#900036",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-primary-container": "#848484",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "outline-variant": "#cfc4c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-container": "#5a001e",
+                        "on-tertiary-container": "#838484",
+                        "on-secondary-fixed": "#400013",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-container": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-dim": "#dadada",
+                        "on-secondary": "#ffffff",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "outline": "#7e7576"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "huge": "80px",
+                        "columns": "12",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "sm": "8px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        /* Custom Utilities for the strict Swiss Style aesthetic */
+        .grid-blueprint {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Enforce sharp edges over default rounding */
+        * { border-radius: 0 !important; }
+        
+        .border-premium { border: 1px solid #000000; }
+        .border-subtle { border: 1px solid #DDDDDD; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-primary flat no shadows">
+<div class="flex items-center">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary">TechSupportSites</span>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex items-center gap-lg">
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200 py-base px-md" href="#">Services</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200 py-base px-md" href="#">Industries</a>
+<a class="font-label-sm text-label-sm text-secondary border-b-2 border-secondary pb-1 uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200 py-base px-md opacity-80 transition-opacity" href="#">Insights</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200 py-base px-md" href="#">About</a>
+</nav>
+<div class="hidden md:flex items-center">
+<button class="bg-primary text-on-primary font-label-sm text-label-sm py-md px-lg uppercase tracking-widest border border-primary hover:bg-surface-container transition-colors hover:text-primary">Consultation</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</header>
+<main class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xxl md:py-huge grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<!-- HERO SECTION -->
+<section class="col-span-4 md:col-span-12 grid grid-cols-4 md:grid-cols-12 gap-gutter mb-huge">
+<div class="col-span-4 md:col-span-6 flex flex-col justify-center pr-0 md:pr-xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-md border-l-2 border-secondary pl-base">Case Study // FinTech</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-lg">Algorithmic Financial Intelligence</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl">Deploying a real-time risk engine to mitigate sophisticated fraud vectors across global transaction networks.</p>
+<div class="flex gap-md">
+<span class="border border-primary px-sm py-xs font-label-sm text-label-sm uppercase">Go</span>
+<span class="border border-primary px-sm py-xs font-label-sm text-label-sm uppercase">Python</span>
+<span class="border border-primary px-sm py-xs font-label-sm text-label-sm uppercase">AWS</span>
+</div>
+</div>
+<div class="col-span-4 md:col-span-6 mt-lg md:mt-0 relative border-premium p-base bg-surface-container grid-blueprint aspect-[4/3] flex items-center justify-center overflow-hidden">
+<img alt="Data dashboard showing financial metrics" class="w-full h-full object-cover filter grayscale contrast-125" data-alt="A highly complex, data-dense financial transaction monitoring dashboard displayed on a stark white screen. The interface is composed of sharp geometric graphs, raw numeric data grids, and stark black-and-white visual analytics. Red accents highlight critical anomalies. The image is brightly lit, emphasizing a modern, technical, and precise light-mode aesthetic associated with enterprise financial software." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAlB3W5MLCc-NV0w5ij9DCsG8Tj93dqjZ2VHfKowmLOQn4GYkSh7wWXZi1YAX2BjIpCnT_6eCoUtALBJ-WWJ8NYNx3TdLiKq_IwrpeTtYhFdZKw0F2Ub4Y-1vENXbg2b1bgM-0vu896wRK876yD4UFMtFy3cX2Qh-3BbJG790KUBH6Bu8vzXiTWmHzXqcMZQ_0wM-nNp58uevmEjoZUsLs1QEocbmJ-vxs0HIZJ-KjXIZSuCmQyhDfM_CuvVWGym1E2dIcPDyXEjdn">
+</div>
+</section>
+<!-- THE FRAUD VECTOR -->
+<section class="col-span-4 md:col-span-12 border-t border-subtle pt-xl mb-huge grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<div class="col-span-4 md:col-span-4">
+<h2 class="font-headline-md text-headline-md text-primary">The Fraud Vector</h2>
+</div>
+<div class="col-span-4 md:col-span-8">
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Legacy rule-based systems were failing to detect synthetic identity fraud and multi-hop laundering techniques, resulting in unacceptable false positive rates that strained compliance operations.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md mt-xl">
+<div class="border-l-2 border-primary pl-md py-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary block mb-xs" style="font-variation-settings: 'FILL' 1;">warning</span>
+<h3 class="font-label-sm text-label-sm uppercase text-primary mb-xs">False Positive Rate</h3>
+<p class="font-headline-md text-headline-md text-primary">87%</p>
+</div>
+<div class="border-l-2 border-primary pl-md py-sm bg-surface-container-low">
+<span class="material-symbols-outlined text-secondary block mb-xs" style="font-variation-settings: 'FILL' 1;">timer</span>
+<h3 class="font-label-sm text-label-sm uppercase text-primary mb-xs">Processing Latency</h3>
+<p class="font-headline-md text-headline-md text-primary">&gt; 2.5s</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SOLUTION: REAL-TIME RISK ENGINE -->
+<section class="col-span-4 md:col-span-12 border-t border-subtle pt-xl mb-huge">
+<h2 class="font-headline-md text-headline-md text-primary mb-xl">Solution: Real-Time Risk Engine</h2>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-4 md:grid-cols-12 gap-base auto-rows-min">
+<!-- Large Card -->
+<div class="col-span-4 md:col-span-8 border-premium p-xl bg-surface">
+<div class="flex justify-between items-start mb-xxl">
+<span class="material-symbols-outlined text-secondary text-display-lg" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+<span class="bg-primary text-on-primary font-label-sm text-label-sm uppercase px-sm py-xs">Architecture</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Graph-Based Detection</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We architected a distributed graph database capable of mapping millions of entity relationships in real-time, uncovering hidden networks invisible to relational queries.</p>
+</div>
+<!-- Stacked Small Cards -->
+<div class="col-span-4 md:col-span-4 flex flex-col gap-base">
+<div class="flex-1 border border-subtle p-lg bg-surface-container-low">
+<h4 class="font-label-sm text-label-sm uppercase text-primary mb-sm">Throughput</h4>
+<p class="font-headline-xl text-headline-xl text-primary">10k <span class="font-body-md text-body-md text-on-surface-variant">TPS</span></p>
+</div>
+<div class="flex-1 border border-subtle p-lg bg-surface-container-low">
+<h4 class="font-label-sm text-label-sm uppercase text-primary mb-sm">Latency SLA</h4>
+<p class="font-headline-xl text-headline-xl text-primary">&lt; 50 <span class="font-body-md text-body-md text-on-surface-variant">ms</span></p>
+</div>
+</div>
+</div>
+</section>
+<!-- ROI & TESTIMONIAL -->
+<section class="col-span-4 md:col-span-12 border-t border-subtle pt-xl grid grid-cols-4 md:grid-cols-12 gap-gutter items-center">
+<div class="col-span-4 md:col-span-6 bg-primary text-on-primary p-xl border-premium h-full flex flex-col justify-center">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest mb-lg text-secondary">Return on Investment</h2>
+<div class="mb-lg">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg block mb-xs">40%</span>
+<span class="font-body-md text-body-md">Reduction in False Positives</span>
+</div>
+<div class="w-full h-px bg-on-primary-fixed-variant mb-lg"></div>
+<div>
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg block mb-xs">$12M</span>
+<span class="font-body-md text-body-md">Annual Operational Savings</span>
+</div>
+</div>
+<div class="col-span-4 md:col-span-6 pl-0 md:pl-xl border-l-0 md:border-l border-subtle py-xl">
+<span class="material-symbols-outlined text-secondary text-display-lg mb-md opacity-20" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-headline-md text-headline-md text-primary mb-xl">
+                    "The precision of the new engine completely transformed our compliance operations. We're catching smarter fraud faster, with less human intervention."
+                </blockquote>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-surface-container border-premium overflow-hidden">
+<img alt="Portrait of CTO" class="w-full h-full object-cover" data-alt="A stark, high-contrast, black-and-white portrait of a serious, middle-aged male executive in a tailored dark suit. The lighting is dramatic and directional, creating a sharp, modern corporate aesthetic against a pure white background. The image exudes authority and technical competence, fitting a light-mode enterprise financial setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCePWrHuORZmhajPpHlj8xRJndDL_B0pg6WvMy1Hpe-8lII67-TukohLTCYeP6I7tnT1kuNIUjh-8PqloXYx6G-m3ycNDa6K_pQAuu6mWhkk_xM8bFK5jOVD90OYWwEIe8bGx_1_W9o4VBPE9qrhNLE5gpdKEXbTSmJAPTfL-0iQRoqZBSOvBep5HuP4eUVSSe4Csy1A7DefwppnTBMUfm81Wd2bOHLu3jcI2z3TnA5XIJ-5ZSiKLBtbLhMd1LRGh5Bom3Z9B0PqOc_">
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase text-primary">Marcus Vance</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">CTO, Global Tier-1 Bank</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container w-full py-xxl px-margin-mobile md:px-margin-desktop grid grid-cols-4 md:grid-cols-12 gap-gutter max-w-container-max mx-auto border-t border-primary flat no shadows">
+<div class="col-span-4 md:col-span-12 mb-xl">
+<span class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">TechSupportSites</span>
+</div>
+<div class="col-span-4 md:col-span-8 flex flex-wrap gap-x-xl gap-y-md mb-xl">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Software Engineering</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Cloud Strategy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Cybersecurity</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">AI Integration</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Financial Services</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Healthcare</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Retail</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Manufacturing</a>
+</div>
+<div class="col-span-4 md:col-span-12 border-t border-subtle pt-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<p class="font-body-md text-body-md text-on-surface">© 2024 TechSupportSites. All rights reserved. Precision Engineering for Enterprise.</p>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Security Disclosure</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Contact</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

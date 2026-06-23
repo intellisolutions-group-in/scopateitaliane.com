@@ -1,0 +1,374 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/services/branding/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f9f9f9; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c6c6c6; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7e7576; 
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#1a1c1c",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dadada",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "outline": "#7e7576",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-primary-container": "#848484",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-surface": "#1a1c1c",
+                    "surface-tint": "#5e5e5e",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-container-low": "#f4f3f3",
+                    "outline-variant": "#cfc4c5",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-secondary-container": "#5a001e",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary-container": "#838484",
+                    "on-secondary-fixed": "#400013",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fd517a",
+                    "on-secondary-fixed-variant": "#900036",
+                    "primary-container": "#1b1b1b",
+                    "on-surface-variant": "#4c4546",
+                    "surface-variant": "#e2e2e2",
+                    "secondary-fixed-dim": "#ffb2bd",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8",
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#c6c6c6",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#e2e2e2",
+                    "surface-container": "#eeeeee",
+                    "tertiary": "#000000",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffd9dd",
+                    "secondary": "#b8174a",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-on-surface": "#f1f1f0",
+                    "surface": "#f9f9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "columns": "12",
+                    "container-max": "1440px",
+                    "md": "16px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "huge": "80px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "xxl": "48px",
+                    "sm": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-xl": [
+                            "Manrope"
+                    ],
+                    "display-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary selection:text-white">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-desktop h-huge bg-surface border-b border-primary flat no shadows">
+<div class="flex items-center gap-xl">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary" href="#">TechSupportSites</a>
+<div class="hidden md:flex gap-lg items-center ml-lg">
+<a class="text-secondary border-b-2 border-secondary pb-1 font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors duration-200" href="#">Services</a>
+<a class="text-primary hover:text-secondary font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors duration-200" href="#">Industries</a>
+<a class="text-primary hover:text-secondary font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors duration-200" href="#">Insights</a>
+<a class="text-primary hover:text-secondary font-label-sm text-label-sm uppercase hover:bg-surface-container-high transition-colors duration-200" href="#">About</a>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-md">
+<button class="bg-primary text-white px-lg py-[12px] font-label-sm text-label-sm uppercase hover:bg-surface-container-high hover:text-primary transition-colors border border-primary">Consultation</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
+<main class="max-w-container-max mx-auto">
+<!-- Hero Section -->
+<section class="py-xxl md:py-huge px-margin-mobile md:px-margin-desktop border-b border-surface-dim">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-6 space-y-lg">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest border border-secondary px-sm py-[4px] inline-block rounded-none">Branding Services</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Identity Engineering for Tech.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        We build robust visual identity systems and brand positioning frameworks designed specifically for technology enterprises. Clarity, precision, and authority.
+                    </p>
+<div class="pt-md">
+<button class="bg-secondary text-white px-lg py-[12px] font-label-sm text-label-sm uppercase hover:bg-primary transition-colors">Start Engineering</button>
+</div>
+</div>
+<div class="md:col-span-6 mt-xl md:mt-0 relative h-[400px] md:h-[600px] border border-primary p-md bg-surface">
+<div class="w-full h-full bg-surface-container-highest border border-outline-variant flex items-center justify-center relative overflow-hidden" data-alt="A meticulously organized flat lay of branding materials on a clean white surface. The scene includes a sleek modern logo grid printed on high-quality matte paper, Pantone color swatches, and drafting tools like a metal ruler and architect's scale. The lighting is crisp, studio-quality, creating subtle, controlled shadows that emphasize the premium, engineered nature of the design process. The color palette is strictly monochromatic with sharp black lines and stark white backgrounds, aligning perfectly with a modern minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvacts9eIjuUrI9QIzwwEfsO3QbLqLDELyGN5kh2L5yqK-1T8lLV94z_PdBQDhtMvx-cekFbvRJDrvFKmiaSxY4MlKpraNUI0vMRPce0jWUmst__zNd4bnAIG-7soKoju7X-Ow-Cj7xpnktXoGUub7MN37if44nwWH8jKQNd0UZgcf-7RI9QNMqzYoVm55rgtVXDaG_ov8eLjbbLzLE6W1vjm_GFiOTZCQ4NoNWGt0CRhfgzZNMwEhsN3Wue4Qblgt23mG2zK5aLH0'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-primary/10"></div>
+<div class="bg-surface p-lg border border-primary backdrop-blur-sm z-10">
+<span class="material-symbols-outlined text-headline-xl">architecture</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Business Problems -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop bg-surface-container-low border-b border-surface-dim">
+<div class="mb-xl">
+<h2 class="font-headline-xl text-headline-xl text-primary">The Diagnostic.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-sm">Identifying systemic brand failures.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="border border-primary p-xl bg-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-headline-md mb-md">visibility_off</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Weak Visual Identity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Your current aesthetic lacks authority and fails to communicate the technical sophistication of your product. It relies on generic templates rather than engineered design principles.
+                    </p>
+</div>
+<div class="border border-primary p-xl bg-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-secondary text-headline-md mb-md">forum</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Inconsistent Messaging</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Fragmented brand voice across different touchpoints creates cognitive dissonance for enterprise buyers. Lack of a centralized truth source leads to marketing entropy.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Solution & Features (Bento Grid) -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop border-b border-surface-dim">
+<div class="mb-xxl text-center max-w-3xl mx-auto">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">The Architecture.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Systematic construction of your brand identity, ensuring scalability, consistency, and market impact.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[300px] gap-gutter">
+<!-- Large Feature -->
+<div class="md:col-span-8 border border-primary bg-surface p-xl flex flex-col justify-between group relative overflow-hidden">
+<div class="relative z-10">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-sm block">Core System</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Visual Identity Systems</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Complete overhaul of your visual assets, establishing a rigid grid-based foundation, typography hierarchy, and intentional color palette.</p>
+</div>
+<div class="absolute bottom-0 right-0 w-2/3 h-2/3 bg-surface-container-high border-t border-l border-outline-variant -mr-lg -mb-lg p-lg opacity-50 group-hover:opacity-100 transition-opacity" data-alt="Abstract geometric layout showing precise grid lines overlaying a clean, minimalist design interface. The image emphasizes structure and mathematical harmony in design, using a stark black, white, and gray color palette. Sharp contrasts and rigid alignments convey a sense of premium, engineered quality typical of enterprise software branding." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCj0hPFnuwrJntQRFjA2SOD_huPkceaM-jZXSpjr6sKzybOB9jf1fNvZI7Badc8-6gWU8_CL0XBQKIYZb8D-KMaJrBR7J3Q_gL_HN5iF2OZMS4tOP-OwPzbxY_MB9HQ3gkrAeicsgsm29JXTPrhXERVPeGAQEaTr_zAWCFEPm0EtA3mMsoREtUtu1OFGUrHvsQLlL4vkJVx1m1hGt7_dgBAHbSfu_m732bDx2ugFaed-f3FZhfnJiM2WWCwJAMmPfjfMtqbEj23aYKW'); background-size: cover; background-position: center;">
+</div>
+</div>
+<!-- Small Feature 1 -->
+<div class="md:col-span-4 border border-primary bg-surface p-xl flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-headline-md mb-sm">draw</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Logo Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Vector-perfect marks designed for maximum legibility across all scales.</p>
+</div>
+</div>
+<!-- Small Feature 2 -->
+<div class="md:col-span-4 border border-primary bg-surface p-xl flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-headline-md mb-sm">record_voice_over</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Brand Voice</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Calibrating your tone to resonate with technical stakeholders and enterprise buyers.</p>
+</div>
+</div>
+<!-- Small Feature 3 -->
+<div class="md:col-span-4 border border-primary bg-surface p-xl flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-headline-md mb-sm">menu_book</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Style Guides</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Comprehensive documentation dictating the precise application of your brand assets.</p>
+</div>
+</div>
+<!-- Medium Feature -->
+<div class="md:col-span-4 border border-primary bg-surface p-xl flex flex-col justify-between items-center text-center">
+<span class="material-symbols-outlined text-headline-xl text-primary mb-md">query_stats</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Brand Positioning</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Strategic alignment of your offering against market competitors.</p>
+</div>
+</div>
+</section>
+<!-- ROI & Tech Stack -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop bg-surface-container-highest border-b border-surface-dim">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-huge items-center">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-xl">The Output.</h2>
+<div class="space-y-lg border-l border-primary pl-lg">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-xs">Metrics</h4>
+<p class="font-body-lg text-body-lg text-primary">Increased brand recognition and enterprise trust through consistent application of identity primitives.</p>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mb-xs">Deliverables</h4>
+<p class="font-body-lg text-body-lg text-primary">Production-ready assets deployed via central repository.</p>
+</div>
+</div>
+</div>
+<div class="border border-primary bg-surface p-xl">
+<h3 class="font-headline-md text-headline-md text-primary border-b border-surface-dim pb-md mb-md">Tooling Stack</h3>
+<ul class="space-y-md">
+<li class="flex items-center justify-between border-b border-surface-dim pb-sm">
+<span class="font-body-md text-body-md text-primary">Adobe Illustrator</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Vector Engineering</span>
+</li>
+<li class="flex items-center justify-between border-b border-surface-dim pb-sm">
+<span class="font-body-md text-body-md text-primary">Adobe InDesign</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Documentation</span>
+</li>
+<li class="flex items-center justify-between border-b border-surface-dim pb-sm">
+<span class="font-body-md text-body-md text-primary">Canva</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Team Deployment</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto bg-surface-container border-t border-primary flat no shadows">
+<div class="md:col-span-4 flex flex-col justify-between">
+<span class="font-display-lg text-display-lg text-primary">TechSupportSites</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-lg md:mt-0">© 2024 TechSupportSites. All rights reserved. Precision Engineering for Enterprise.</p>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-lg">
+<div class="flex flex-col gap-sm">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Software Engineering</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Cloud Strategy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Cybersecurity</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">AI Integration</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Financial Services</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Healthcare</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Retail</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Manufacturing</a>
+</div>
+<div class="flex flex-col gap-sm">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Security Disclosure</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple FAQ Accordion Logic could go here if implemented, keeping it static for now to match the rigid aesthetic
+    </script>
+
+
+</body></html>

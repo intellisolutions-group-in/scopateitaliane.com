@@ -1,0 +1,310 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/services/mobile-app-development/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-primary-container": "#848484",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "outline-variant": "#cfc4c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-container": "#5a001e",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-container": "#838484",
+                        "on-secondary-fixed": "#400013",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "on-secondary-fixed-variant": "#900036",
+                        "primary-container": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffd9dd",
+                        "secondary": "#b8174a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "columns": "12",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "huge": "80px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary selection:text-white">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-primary">
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary">
+            TechSupportSites
+        </div>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center space-x-xl">
+<a class="font-label-sm text-label-sm text-secondary border-b-2 border-secondary pb-1" href="#">Services</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-2 py-1" href="#">Industries</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-2 py-1" href="#">Insights</a>
+<a class="font-label-sm text-label-sm text-primary hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-2 py-1" href="#">About</a>
+</div>
+<div class="hidden md:flex items-center space-x-lg">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:text-secondary" data-icon="search">search</span>
+<button class="bg-primary text-white font-label-sm text-label-sm uppercase tracking-widest px-[24px] py-[12px] hover:bg-surface-tint transition-colors">Consultation</button>
+</div>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-xxl pb-huge md:pt-huge md:pb-huge px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-gutter items-center border-b border-surface-container-highest">
+<div class="md:col-span-7 z-10">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-lg">Cross-Platform Mobile Excellence</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-2xl">
+                    Precision engineering for iOS and Android. We build high-performance native and hybrid mobile applications that guarantee parity, speed, and seamless user experiences across all devices.
+                </p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-secondary text-white font-label-sm text-label-sm uppercase tracking-widest px-[24px] py-[12px] hover:bg-secondary-container transition-colors">Request Mobile Strategy</button>
+<button class="border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest px-[24px] py-[12px] hover:bg-surface-container transition-colors">Explore Tech Stack</button>
+</div>
+</div>
+<div class="md:col-span-5 mt-xl md:mt-0 relative h-[400px] md:h-[600px] blueprint-grid border border-primary bg-surface flex items-center justify-center overflow-hidden">
+<img alt="Mobile app blueprint" class="absolute w-[80%] object-cover border border-primary opacity-80 mix-blend-multiply filter grayscale contrast-125" data-alt="A highly detailed technical blueprint of a modern mobile application interface displayed on a pristine white background. The image features crisp, thin black grid lines defining structural elements, wireframes, and UI components with architectural precision. Accents of vibrant red highlight critical interaction points and data flows. The overall aesthetic is minimalist, professional, and indicative of high-end software engineering in a bright, modern studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDYIP79ZnkdhefasJQM6z42uhAdtYUYucSE4CRvLMcxAgjBvlyhLCkzC8dzglCJfleD_R4QfbVVyDlDSngFvryXCNXf9qe0T6q-I350PC9I4szoTqusZxX8MdWtduUVil_zhvVrNTZb27lTl-npgk-_3VTLZ_niVJycmMpiX4U55xzSHj1VkRIk3Llri0goMrEfCZ07oGqpFlKKZPfNOwgVweeJEgWM5n07MG45eNo0EoSE4CEKroPAjc3ykpKtYmeiBI7k0jZFpeg">
+</div>
+</section>
+<!-- Business Problems Section -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-surface-container-highest">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<h2 class="font-headline-md text-headline-md text-primary mb-md">The Mobile Challenge</h2>
+</div>
+<div class="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="border border-surface-dim p-lg hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-md" data-icon="broken_image">broken_image</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Fragmented Experience</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Inconsistent UI and erratic behavior across different operating systems degrade brand trust.</p>
+</div>
+<div class="border border-surface-dim p-lg hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-md" data-icon="speed">speed</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Performance Bottlenecks</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Slow load times and unresponsive interfaces lead to high abandonment rates and poor user retention.</p>
+</div>
+<div class="border border-surface-dim p-lg hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-md" data-icon="account_balance_wallet">account_balance_wallet</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Escalating Costs</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Maintaining separate native codebases doubles development time and resource expenditure.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solution & Features (Bento Grid) -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface border-b border-surface-container-highest">
+<div class="mb-xxl max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">Engineered for Performance</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                    TechSupportSites delivers a unified mobile strategy. Whether utilizing rigorous native development or advanced hybrid frameworks, we ensure your application operates flawlessly under peak loads.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[240px] gap-gutter">
+<!-- Feature 1: Large -->
+<div class="md:col-span-8 row-span-2 border border-primary bg-surface p-xl relative overflow-hidden group">
+<div class="absolute inset-0 blueprint-grid opacity-20"></div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary text-3xl mb-sm" data-icon="sync">sync</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Real-Time Sync Architecture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Instantaneous data propagation across all devices ensuring users always interact with the most current state, supported by robust conflict resolution protocols.</p>
+</div>
+<div class="flex gap-sm">
+<span class="border border-surface-dim px-sm py-xs font-label-sm text-label-sm">WebSocket</span>
+<span class="border border-surface-dim px-sm py-xs font-label-sm text-label-sm">GraphQL</span>
+</div>
+</div>
+</div>
+<!-- Feature 2: Small -->
+<div class="md:col-span-4 row-span-1 border border-surface-dim bg-background p-lg hover:border-primary transition-colors flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-sm" data-icon="wifi_off">wifi_off</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-xs">Offline-First Mode</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Seamless functionality without connectivity, synchronizing locally cached data upon reconnection.</p>
+</div>
+<!-- Feature 3: Small -->
+<div class="md:col-span-4 row-span-1 border border-surface-dim bg-background p-lg hover:border-primary transition-colors flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary text-3xl mb-sm" data-icon="fingerprint">fingerprint</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-xs">Biometric Security</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Enterprise-grade authentication integrating FaceID and TouchID hardware capabilities natively.</p>
+</div>
+<!-- Feature 4: Wide -->
+<div class="md:col-span-12 row-span-1 border border-surface-dim bg-background p-lg hover:border-primary transition-colors flex items-center justify-between">
+<div class="flex items-center gap-lg">
+<span class="material-symbols-outlined text-secondary text-4xl" data-icon="notifications_active">notifications_active</span>
+<div>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-xs">Push Notification Engine</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Targeted, segmented, and behavior-triggered alerts to drive user engagement and retention.</p>
+</div>
+</div>
+<button class="hidden md:block border border-primary text-primary font-label-sm text-label-sm px-md py-sm hover:bg-surface-container">View Architecture</button>
+</div>
+</div>
+</section>
+<!-- Tech Stack -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-surface-container-highest">
+<h2 class="font-headline-md text-headline-md text-primary mb-xl text-center">Technology Stack</h2>
+<div class="flex flex-wrap justify-center gap-lg">
+<div class="border border-primary px-xl py-md text-center hover:bg-primary hover:text-white transition-colors cursor-default">
+<span class="font-label-sm text-label-sm uppercase tracking-widest block mb-xs">Framework</span>
+<span class="font-headline-sm font-bold">Flutter</span>
+</div>
+<div class="border border-primary px-xl py-md text-center hover:bg-primary hover:text-white transition-colors cursor-default">
+<span class="font-label-sm text-label-sm uppercase tracking-widest block mb-xs">Framework</span>
+<span class="font-headline-sm font-bold">React Native</span>
+</div>
+<div class="border border-surface-dim px-xl py-md text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest block mb-xs text-on-surface-variant">Native iOS</span>
+<span class="font-headline-sm font-bold">Swift</span>
+</div>
+<div class="border border-surface-dim px-xl py-md text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest block mb-xs text-on-surface-variant">Native Android</span>
+<span class="font-headline-sm font-bold">Kotlin</span>
+</div>
+<div class="border border-surface-dim px-xl py-md text-center">
+<span class="font-label-sm text-label-sm uppercase tracking-widest block mb-xs text-on-surface-variant">Backend/BaaS</span>
+<span class="font-headline-sm font-bold">Firebase</span>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-huge px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-primary text-white text-center">
+<h2 class="font-headline-xl text-headline-xl mb-md">Ready to Build?</h2>
+<p class="font-body-lg text-body-lg text-surface-dim mb-xl max-w-2xl mx-auto">
+                Partner with us to engineer a mobile application that sets the standard in your industry.
+            </p>
+<button class="bg-secondary text-white font-label-sm text-label-sm uppercase tracking-widest px-[32px] py-[16px] hover:bg-secondary-container transition-colors">Request Mobile Strategy</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container text-on-surface w-full py-xxl px-margin-mobile md:px-margin-desktop border-t border-primary grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<div class="md:col-span-4 mb-xl md:mb-0">
+<div class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-md font-bold tracking-tighter">
+                TechSupportSites
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                © 2024 TechSupportSites. All rights reserved. Precision Engineering for Enterprise.
+            </p>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-lg">
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-md">Services</h4>
+<ul class="space-y-sm">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Software Engineering</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Cloud Strategy</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Cybersecurity</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">AI Integration</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-md">Industries</h4>
+<ul class="space-y-sm">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Financial Services</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Healthcare</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Retail</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Manufacturing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-md">Legal</h4>
+<ul class="space-y-sm">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Privacy Policy</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Terms of Service</a></li>
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Security Disclosure</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-md">Company</h4>
+<ul class="space-y-sm">
+<li class=""><a class="font-body-md text-body-md text-on-surface-variant hover:text-primary hover:underline decoration-secondary decoration-2 transition-all duration-300" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</footer>
+
+
+</body></html>

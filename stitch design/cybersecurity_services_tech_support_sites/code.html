@@ -1,0 +1,335 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/services/cybersecurity/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-primary-container": "#848484",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "outline-variant": "#cfc4c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-container": "#5a001e",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-container": "#838484",
+                        "on-secondary-fixed": "#400013",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "on-secondary-fixed-variant": "#900036",
+                        "primary-container": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffd9dd",
+                        "secondary": "#b8174a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "columns": "12",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "huge": "80px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; margin: 0; padding: 0; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .btn-primary { background-color: #000000; color: #ffffff; padding: 12px 24px; border-radius: 0; border: 1px solid #000000; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+        .btn-primary:hover { background-color: #333333; }
+        .btn-accent { background-color: #CB2957; color: #ffffff; padding: 12px 24px; border-radius: 0; border: none; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: background-color 0.2s ease; }
+        .btn-accent:hover { background-color: #a02045; }
+        .btn-ghost { background-color: transparent; color: #000000; padding: 12px 24px; border-radius: 0; border: 1px solid #000000; display: inline-flex; align-items: center; justify-content: center; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+        .btn-ghost:hover { background-color: #eeeeee; }
+        .bento-card { border: 1px solid #DDDDDD; background-color: #ffffff; padding: 32px; display: flex; flex-direction: column; }
+        .tech-pill { border: 1px solid #DDDDDD; padding: 8px 16px; border-radius: 0; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; background-color: #f9f9f9; }
+        .faq-item { border-bottom: 1px solid #DDDDDD; padding: 24px 0; }
+        .faq-question { cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 600; }
+        .faq-answer { display: none; margin-top: 16px; font-family: 'Inter', sans-serif; font-size: 16px; color: #4c4546; }
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .material-symbols-outlined { transform: rotate(180deg); }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-secondary selection:text-white">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-desktop h-huge bg-surface border-b border-primary dark:border-outline flat no shadows">
+<div class="font-display-lg text-display-lg font-bold tracking-tighter text-primary dark:text-on-primary">
+            TechSupportSites
+        </div>
+<div class="hidden md:flex space-x-xl font-label-sm text-label-sm">
+<a class="text-secondary border-b-2 border-secondary pb-1 opacity-80 transition-opacity" href="#">Services</a>
+<a class="text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200" href="#">Industries</a>
+<a class="text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200" href="#">Insights</a>
+<a class="text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200" href="#">About</a>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined cursor-pointer text-primary hover:text-secondary">search</span>
+<button class="btn-primary">Consultation</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full pt-xxl pb-huge px-margin-desktop flex flex-col items-center justify-center text-center border-b border-surface-dim bg-surface-container-lowest">
+<div class="max-w-4xl mx-auto z-10 relative">
+<span class="inline-block border border-primary px-sm py-xs font-label-sm text-label-sm mb-lg bg-surface uppercase tracking-widest">Cybersecurity Services</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-xl">Hardened Security Architectures</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-2xl mx-auto">
+                Precision engineering for enterprise defense. We architect, deploy, and manage zero-trust frameworks to neutralize threats before they materialize.
+            </p>
+<div class="flex gap-md justify-center">
+<button class="btn-accent">Deploy Defense</button>
+<button class="btn-ghost">View Case Studies</button>
+</div>
+</div>
+<!-- Abstract Pattern Graphic (CSS Only for lightweight geometry) -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 32px 32px;"></div>
+</header>
+<!-- The Problem & Solution (Bento Grid) -->
+<section class="py-huge px-margin-desktop max-w-container-max mx-auto border-b border-surface-dim">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Problem Area -->
+<div class="col-span-1 md:col-span-4 flex flex-col gap-gutter">
+<div class="bento-card bg-surface-container-low h-full justify-between">
+<div>
+<span class="material-symbols-outlined text-error text-4xl mb-md">warning</span>
+<h2 class="font-headline-md text-headline-md text-primary mb-md">The Risk Landscape</h2>
+<ul class="space-y-md font-body-md text-body-md text-on-surface-variant">
+<li class="flex items-start gap-sm border-t border-outline-variant pt-sm">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">close</span>
+<div class=""><strong class="text-primary block font-label-sm text-label-sm uppercase tracking-widest mb-xs">Data Breaches</strong> Escalating costs and reputational damage.</div>
+</li>
+<li class="flex items-start gap-sm border-t border-outline-variant pt-sm">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">close</span>
+<div class=""><strong class="text-primary block font-label-sm text-label-sm uppercase tracking-widest mb-xs">Compliance Failures</strong> Regulatory fines and operational halts.</div>
+</li>
+<li class="flex items-start gap-sm border-t border-outline-variant pt-sm">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">close</span>
+<div class=""><strong class="text-primary block font-label-sm text-label-sm uppercase tracking-widest mb-xs">Insider Threats</strong> Unmonitored lateral movement.</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Solution Area -->
+<div class="col-span-1 md:col-span-8">
+<div class="bento-card h-full bg-primary text-on-primary">
+<div class="flex justify-between items-start mb-xxl">
+<span class="material-symbols-outlined text-4xl text-secondary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="border border-outline px-sm py-xs font-label-sm text-label-sm uppercase">The Protocol</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl mb-lg text-surface-container-lowest">Zero-Trust Frameworks</h2>
+<p class="font-body-lg text-body-lg text-surface-container-highest mb-xl max-w-2xl">
+                        We engineer environments where trust is never assumed. Continuous verification, least-privilege access, and advanced threat intelligence form the core of our defensive architectures.
+                    </p>
+<div class="grid grid-cols-2 gap-lg border-t border-outline pt-lg mt-auto">
+<div>
+<span class="block font-headline-md text-headline-md text-surface-container-lowest mb-xs">24/7</span>
+<span class="font-label-sm text-label-sm text-surface-dim uppercase tracking-widest">Active Monitoring</span>
+</div>
+<div>
+<span class="block font-headline-md text-headline-md text-surface-container-lowest mb-xs">&lt;15m</span>
+<span class="font-label-sm text-label-sm text-surface-dim uppercase tracking-widest">Incident Response</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features -->
+<section class="py-huge px-margin-desktop max-w-container-max mx-auto border-b border-surface-dim bg-surface">
+<div class="mb-xxl max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">Defensive Capabilities</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Comprehensive security vectors designed for enterprise-scale resilience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="bento-card hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-secondary text-3xl mb-lg">bug_report</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Penetration Testing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Simulated cyberattacks to expose vulnerabilities before exploitation.</p>
+</div>
+<div class="bento-card hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-secondary text-3xl mb-lg">monitoring</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">SOC-as-a-Service</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Continuous monitoring and rapid response by elite security analysts.</p>
+</div>
+<div class="bento-card hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-secondary text-3xl mb-lg">gavel</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">Compliance Audits</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Rigorous assessments to ensure alignment with global regulatory standards.</p>
+</div>
+<div class="bento-card hover:border-primary transition-colors cursor-default">
+<span class="material-symbols-outlined text-secondary text-3xl mb-lg">key</span>
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm">IAM Architecture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Identity and Access Management systems enforcing strict access controls.</p>
+</div>
+</div>
+</section>
+<!-- ROI & Tech Stack (Asymmetric Layout) -->
+<section class="py-huge px-margin-desktop max-w-container-max mx-auto border-b border-surface-dim">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-xxl items-center">
+<!-- ROI Anchor -->
+<div class="col-span-1 md:col-span-5">
+<div class="border-l-4 border-secondary pl-lg">
+<h2 class="font-display-lg text-display-lg text-primary mb-sm">100%</h2>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Compliance Guarantee</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Our architectures are engineered to meet and exceed industry standards (GDPR, HIPAA, SOC2). We design systems that inherently satisfy audit requirements, turning compliance from a burden into a structural advantage.
+                    </p>
+</div>
+</div>
+<!-- Tech Stack -->
+<div class="col-span-1 md:col-span-6 md:col-start-7">
+<h3 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-lg border-b border-outline-variant pb-sm">Approved Technology Stack</h3>
+<div class="flex flex-wrap gap-sm">
+<span class="tech-pill"><span class="material-symbols-outlined text-secondary text-sm">terminal</span> CrowdStrike</span>
+<span class="tech-pill"><span class="material-symbols-outlined text-secondary text-sm">data_usage</span> Splunk</span>
+<span class="tech-pill"><span class="material-symbols-outlined text-secondary text-sm">security</span> Palo Alto Networks</span>
+<span class="tech-pill"><span class="material-symbols-outlined text-secondary text-sm">code</span> Kali Linux</span>
+<span class="tech-pill"><span class="material-symbols-outlined text-secondary text-sm">cloud</span> AWS Security Hub</span>
+<span class="tech-pill"><span class="material-symbols-outlined text-secondary text-sm">hub</span> Cisco Secure</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-huge px-margin-desktop max-w-container-max mx-auto bg-surface-container-lowest">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-xxl text-center">Frequently Asked Questions</h2>
+<div class="border-t border-primary">
+<div class="faq-item" onclick="this.classList.toggle('active')">
+<div class="faq-question">
+<span class="">What is your SLA for incident response?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</div>
+<div class="faq-answer">Our SOC provides a 15-minute response time SLA for critical incidents, 24/7/365.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('active')">
+<div class="faq-question">
+<span class="">Do you guarantee GDPR compliance?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</div>
+<div class="faq-answer">Yes. Our data architectures and IAM protocols are mapped directly to GDPR requirements, ensuring full data sovereignty and right-to-erasure compliance.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('active')">
+<div class="faq-question">
+<span class="">How often should we conduct penetration testing?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</div>
+<div class="faq-answer">We recommend comprehensive penetration testing annually, or immediately following any significant structural change to your infrastructure.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('active')">
+<div class="faq-question">
+<span class="">Is SOC-as-a-Service necessary if we have an IT team?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</div>
+<div class="faq-answer">Yes. Standard IT focuses on availability and performance. A SOC focuses exclusively on threat detection, analysis, and active defense, requiring specialized tooling and expertise.</div>
+</div>
+<div class="faq-item" onclick="this.classList.toggle('active')">
+<div class="faq-question">
+<span class="">What does 'Zero-Trust' actually mean in practice?</span>
+<span class="material-symbols-outlined transition-transform duration-200">expand_more</span>
+</div>
+<div class="faq-answer">It means removing implicit trust. Every access request, regardless of origin, is rigorously authenticated, authorized, and continuously validated before access is granted.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-tertiary-container text-on-surface dark:text-on-tertiary-container w-full py-xxl px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto border-t border-primary dark:border-outline-variant flat no shadows">
+<div class="col-span-12 md:col-span-4 mb-lg md:mb-0">
+<div class="font-display-lg text-display-lg text-primary dark:text-on-tertiary-container mb-md">
+                TechSupportSites
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container">
+                © 2024 TechSupportSites. All rights reserved. Precision Engineering for Enterprise.
+            </p>
+</div>
+<div class="col-span-12 md:col-span-8 flex flex-wrap gap-x-lg gap-y-sm font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container">
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Software Engineering</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Cloud Strategy</a>
+<a class="text-secondary font-bold hover:underline decoration-secondary decoration-2 transition-all duration-300 ease-in-out" href="#">Cybersecurity</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">AI Integration</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Financial Services</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Healthcare</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Retail</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Manufacturing</a>
+<div class="w-full h-0 border-t border-outline-variant my-sm hidden md:block"></div>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Privacy Policy</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Terms of Service</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Security Disclosure</a>
+<a class="hover:underline decoration-secondary decoration-2 hover:text-primary transition-all duration-300 ease-in-out" href="#">Contact</a>
+</div>
+</footer>
+
+
+</body></html>

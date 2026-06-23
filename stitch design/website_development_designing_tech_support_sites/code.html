@@ -1,0 +1,310 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/services/web-development/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#dadada",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "outline": "#7e7576",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-primary-container": "#848484",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "outline-variant": "#cfc4c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-container": "#5a001e",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-container": "#838484",
+                        "on-secondary-fixed": "#400013",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "on-secondary-fixed-variant": "#900036",
+                        "primary-container": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container": "#eeeeee",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffd9dd",
+                        "secondary": "#b8174a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface": "#f9f9f9",
+                        "accent": "#CB2957"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "columns": "12",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "huge": "80px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .bento-item {
+            border: 1px solid #000000;
+            background-color: #f9f9f9;
+            padding: 32px;
+        }
+        .bento-item:hover {
+            background-color: #eeeeee;
+        }
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+        }
+        .tech-item {
+            border: 1px solid #DDDDDD;
+            padding: 24px;
+            text-align: center;
+        }
+        .process-step {
+            border-top: 1px solid #000000;
+            padding-top: 24px;
+            margin-bottom: 48px;
+        }
+        .btn-primary {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #000000;
+        }
+        .btn-primary:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .btn-accent {
+            background-color: #CB2957;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #CB2957;
+        }
+        .btn-accent:hover {
+            background-color: #ffffff;
+            color: #CB2957;
+        }
+        .btn-ghost {
+            background-color: transparent;
+            color: #000000;
+            padding: 12px 24px;
+            border-radius: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #000000;
+        }
+        .btn-ghost:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="bg-background text-primary font-body-md antialiased selection:bg-accent selection:text-white">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-desktop h-huge bg-surface border-b border-primary dark:border-outline flat no shadows">
+<div class="font-display-lg text-display-lg font-bold tracking-tighter text-primary dark:text-on-primary">TechSupportSites</div>
+<nav class="hidden md:flex gap-lg">
+<a class="text-secondary border-b-2 border-secondary pb-1 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200" href="#">Services</a>
+<a class="text-primary dark:text-on-surface hover:text-secondary font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200" href="#">Industries</a>
+<a class="text-primary dark:text-on-surface hover:text-secondary font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200" href="#">Insights</a>
+<a class="text-primary dark:text-on-surface hover:text-secondary font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container-high transition-colors duration-200" href="#">About</a>
+</nav>
+<a class="btn-primary" href="#">Consultation</a>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="py-huge px-margin-desktop max-w-container-max mx-auto grid grid-cols-12 gap-gutter items-center min-h-[80vh]">
+<div class="col-span-12 md:col-span-7 pr-xl">
+<span class="font-label-sm text-label-sm text-accent uppercase tracking-widest mb-md block">Website Development &amp; Designing</span>
+<h1 class="font-display-lg text-display-lg md:font-display-lg-mobile text-primary mb-xl">Engineering Scalable Web Platforms</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-2xl">
+                    We architect high-performance, resilient web platforms designed to handle enterprise scale. Our engineering approach prioritizes technical excellence, secure architecture, and seamless user experiences, eliminating legacy debt to propel your digital business forward.
+                </p>
+<div class="flex gap-md">
+<a class="btn-accent" href="#">Start Your Project</a>
+<a class="btn-ghost" href="#features">Explore Capabilities</a>
+</div>
+</div>
+<div class="col-span-12 md:col-span-5 h-[500px] border border-primary relative overflow-hidden bg-surface-container">
+<img alt="Abstract 3D wireframe mesh representing scalable web architecture." class="w-full h-full object-cover filter grayscale opacity-80 mix-blend-multiply" data-alt="A highly detailed, abstract 3D wireframe mesh representing complex web architecture and data flow. The structure is built with pristine white lines over a deep black background, creating a high-contrast, modern aesthetic. Sparse, vibrant red accents highlight key connection nodes, symbolizing active data transmission. The scene is illuminated with a stark, cold light, evoking a sense of precision, engineering excellence, and enterprise-grade scalability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhhCFUYjAfHvTFX-bNhfLs38x2ugR3-z3BmNKnQW1RkOMwHw4QFy8SwlbWJc-LAa5CREJS-09H1t2kepp1xVjBxUNjEFEXwQlZjMkwtC905klraDXWcrFrkvSNyaLFjKRqp5Bi6YLFo85gZ_X5NEZptxqDdKtJxRXykHriIfFXBD17JCTxi0pFHSxMFDX9ScVE4pvPa-yll-_pAnSSgWQguhUS9-TDnkz_lyGZ8kYRr6FZX_HfrClbPtrbfJ_B_qJ5MZn8hvhQ_RS3">
+</div>
+</section>
+<!-- Business Problems -->
+<section class="py-huge px-margin-desktop bg-surface-container-low border-y border-primary">
+<div class="max-w-container-max mx-auto">
+<div class="mb-xxl max-w-3xl">
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">Overcoming Architectural Bottlenecks</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Modern enterprises cannot afford to be constrained by outdated technology. We address the core technical challenges that impede growth.</p>
+</div>
+<div class="bento-grid">
+<div class="bento-item col-span-12 md:col-span-4">
+<span class="material-symbols-outlined text-accent mb-md block text-4xl" data-icon="account_tree">account_tree</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Legacy Technical Debt</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Untangling complex, monolithic codebases and refactoring them into modular, maintainable microservices architectures.</p>
+</div>
+<div class="bento-item col-span-12 md:col-span-4">
+<span class="material-symbols-outlined text-accent mb-md block text-4xl" data-icon="speed">speed</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Performance Degradation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Optimizing server response times, minimizing payload sizes, and implementing advanced caching strategies to ensure sub-second load times.</p>
+</div>
+<div class="bento-item col-span-12 md:col-span-4">
+<span class="material-symbols-outlined text-accent mb-md block text-4xl" data-icon="devices">devices</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">Omnichannel Fragmentation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Building responsive, progressive web applications (PWAs) that deliver a consistent, native-like experience across all devices and network conditions.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Solutions & Features -->
+<section class="py-huge px-margin-desktop max-w-container-max mx-auto" id="features">
+<div class="mb-xxl text-center max-w-3xl mx-auto">
+<span class="font-label-sm text-label-sm text-accent uppercase tracking-widest mb-md block">The TechSupportSites Advantage</span>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-md">Custom-Built, Performance-Optimized Architecture</h2>
+</div>
+<div class="grid grid-cols-12 gap-gutter mb-xxl items-center border-b border-primary pb-xl">
+<div class="col-span-12 md:col-span-6 pr-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Headless CMS Integration</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Decoupling the frontend presentation layer from the backend content repository. This approach provides ultimate flexibility, allowing marketing teams to manage content seamlessly while developers build fast, scalable interfaces using modern frameworks.</p>
+</div>
+<div class="col-span-12 md:col-span-6 h-64 border border-DDDDDD bg-surface-container relative">
+<img alt="Data flow diagram representing Headless CMS." class="w-full h-full object-cover filter grayscale opacity-90" data-alt="A sleek, minimalist digital illustration representing a headless CMS architecture. The design uses stark geometric shapes—a central solid black block connected by thin, precise grey lines to multiple smaller, floating screens and devices. The background is a clean, bright white, creating a high-contrast, technical diagrammatic look. A single, sharp accent of deep red highlights the central data hub, emphasizing the 'API-first' connection model." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcta16jxQ4h5mBsiXKAJcwuwV5yyPaBQYxKaJSFbHedzxq-3Tc59Wsb7yShVIMX5TbR2oZX_RdfNMz-Oj_dd5qBtc8irLzUvwttaYBnOanW6MP67W2nguGqZzkThOTjyNo6kg7bLDCgPdprGb1HhjLBdM1KiJqrzmQ26yY_6hmECc4i6V4J7GsJlW5t3grM1AmCalb_9PftOMbbH3tMAqN-KTRin2csMn_uMuPH0dM63XbepmADIoAhipw3hnylvSP7V73FBjCEuAm">
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter mb-xxl items-center border-b border-primary pb-xl">
+<div class="col-span-12 md:col-span-6 order-2 md:order-1 h-64 border border-DDDDDD bg-surface-container relative">
+<img alt="E-commerce shopping cart code representation." class="w-full h-full object-cover filter grayscale opacity-90" data-alt="A close-up, high-contrast shot of computer code displayed on a modern monitor, specifically focusing on an e-commerce transaction function. The code is rendered in sharp white text against an absolute black background. The overall tone is clinical and precise, representing robust financial systems engineering. A subtle, targeted red highlight underlines the 'secure_checkout' variable, emphasizing enterprise-grade security." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRtU4cLwnl8wRzdiRwIPEi5eTVyBpzwDRr_GCVZhC8VdFCctZ18IFLUyzQZWqwvW46nuFzBKiZ7spnVQ-b_avrTrYlOuX-2Q3iSEgTFXSgFcYBdnn_w_7nk3oUbzYGXG1X4-eQtZUUDhzZcMdFF5UlqsVz82egL4AQfR0XJqrEYUUMItefeP58e49doa7pxDRslvCBWFVK_ZZ3yRo22oBzua-Dy3LEWZTjrR0r_eKnVHOs5kAos8N_BUz2XZ45Q34Td_axFQbzpSuG">
+</div>
+<div class="col-span-12 md:col-span-6 order-1 md:order-2 pl-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Enterprise E-commerce Systems</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Building robust, high-volume transactional platforms. We integrate complex inventory management, secure payment gateways, and personalized recommendation engines to drive conversion and handle peak traffic seamlessly.</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-gutter mb-xxl items-center pb-xl">
+<div class="col-span-12 md:col-span-6 pr-xl">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">API-First Design &amp; Microservices</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Engineering resilient systems based on independent, deployable services. An API-first approach ensures seamless integration with third-party tools, legacy databases, and future technologies, future-proofing your digital ecosystem.</p>
+</div>
+<div class="col-span-12 md:col-span-6 h-64 border border-DDDDDD bg-surface-container relative">
+<img alt="Global network connectivity nodes." class="w-full h-full object-cover filter grayscale opacity-90" data-alt="A minimalist, monochromatic rendering of a global network map, visualized through a grid of interconnected nodes. The background is a solid, light grey, contrasting with stark black nodes and sharp, straight connecting lines. The composition is highly structured, embodying the 'Swiss International Style' of design. Occasional red data packets traverse the lines, illustrating active API requests within a microservices architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdjXN5YZvxuWxtdVLi9qMNysh1H1M8MeQNXNQcB5XKfpePKfLzIXWd4N9QLgT2cSa1sKpAiLaXbDR2WMlEDqJc1AOMuc5gZv4PLfkfz4znznOplrWDZ3lv3ZeHvuhxY6A7atdZ6jKf_YYsFD_YDVENEWcuXSNyq3BoUI4wNzEF9S1AkozRgeoi9vFvnU0kR4Nvmm9rwXgHiw5_yP2XURvCgDHaTNoBmCkHzS2TCEu6FVwU639L0KOGE456KCym-DxItlmzQAu9V3Bs">
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto bg-surface-container dark:bg-tertiary-container border-t border-primary dark:border-outline-variant flat no shadows transition-all duration-300 ease-in-out">
+<div class="col-span-12 md:col-span-4 mb-xl md:mb-0">
+<div class="font-display-lg text-display-lg text-primary dark:text-on-tertiary-container mb-md">TechSupportSites</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Precision Engineering for Enterprise.</p>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">© 2024 TechSupportSites. All rights reserved.</p>
+</div>
+<div class="col-span-12 md:col-span-8 flex flex-wrap gap-xl justify-end">
+<div class="flex flex-col gap-sm min-w-[150px]">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm border-b border-primary pb-1 inline-block w-max">Services</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Software Engineering</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Cloud Strategy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Cybersecurity</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">AI Integration</a>
+</div>
+<div class="flex flex-col gap-sm min-w-[150px]">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm border-b border-primary pb-1 inline-block w-max">Industries</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Financial Services</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Healthcare</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Retail</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Manufacturing</a>
+</div>
+<div class="flex flex-col gap-sm min-w-[150px]">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-sm border-b border-primary pb-1 inline-block w-max">Legal</span>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Security Disclosure</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2" href="#">Contact</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

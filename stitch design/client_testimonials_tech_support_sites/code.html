@@ -1,0 +1,315 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/testimonials/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary": "#000000",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffd9dd",
+                        "secondary": "#b8174a",
+                        "on-primary-fixed": "#1b1b1b",
+                        "inverse-on-surface": "#f1f1f0",
+                        "surface": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fd517a",
+                        "primary-container": "#1b1b1b",
+                        "on-surface-variant": "#4c4546",
+                        "on-secondary-fixed-variant": "#900036",
+                        "secondary-fixed-dim": "#ffb2bd",
+                        "surface-variant": "#e2e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "surface-container-high": "#e8e8e8",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary-fixed-variant": "#474747",
+                        "on-primary-container": "#848484",
+                        "surface-tint": "#5e5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f4f3f3",
+                        "outline-variant": "#cfc4c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-secondary-container": "#5a001e",
+                        "on-tertiary-container": "#838484",
+                        "on-secondary-fixed": "#400013",
+                        "inverse-surface": "#2f3131",
+                        "tertiary-container": "#1a1c1c",
+                        "on-background": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "surface-dim": "#dadada",
+                        "on-secondary": "#ffffff",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "outline": "#7e7576"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "huge": "80px",
+                        "columns": "12",
+                        "container-max": "1440px",
+                        "md": "16px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Manrope"],
+                        "display-lg": ["Manrope"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-secondary selection:text-on-secondary">
+<!-- TopNavBar Component -->
+<nav class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-primary dark:border-outline">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary dark:text-on-primary" href="/">
+            TechSupportSites
+        </a>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-sm text-label-sm text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-base py-xs" href="/services">Services</a>
+<a class="font-label-sm text-label-sm text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-base py-xs" href="/industries">Industries</a>
+<a class="font-label-sm text-label-sm text-primary dark:text-on-surface hover:text-secondary hover:bg-surface-container-high transition-colors duration-200 px-base py-xs" href="/insights">Insights</a>
+<a class="font-label-sm text-label-sm text-secondary border-b-2 border-secondary pb-1 opacity-80 transition-opacity px-base py-xs" href="/about">About</a>
+</div>
+<div class="flex items-center gap-md">
+<button aria-label="Search" class="hidden md:flex items-center justify-center p-sm text-primary hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<a class="hidden md:inline-flex bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-lg py-md rounded-none hover:bg-surface-tint transition-colors" href="/contact">
+                Consultation
+            </a>
+<button aria-label="Menu" class="md:hidden p-sm text-primary">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge md:py-[120px]">
+<div class="grid grid-cols-4 md:grid-cols-12 gap-gutter">
+<div class="col-span-4 md:col-span-10 md:col-start-2 text-center">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-lg">Engineering Excellence, Verified.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto mb-xl">
+                        Industry leaders rely on our technical precision and strategic vision. Don't just take our word for it—listen to the partners who have transformed their enterprise architecture with TechSupportSites.
+                    </p>
+</div>
+</div>
+</section>
+<!-- High-Impact Metrics Bar -->
+<section class="border-y border-primary bg-surface-container">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-xl md:py-xxl">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter text-center divide-x divide-outline-variant">
+<div class="flex flex-col items-center justify-center p-md">
+<span class="font-headline-xl text-headline-xl text-primary mb-xs">99%</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Client Retention</span>
+</div>
+<div class="flex flex-col items-center justify-center p-md">
+<span class="font-headline-xl text-headline-xl text-primary mb-xs">$2B+</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Revenue Protected</span>
+</div>
+<div class="flex flex-col items-center justify-center p-md">
+<span class="font-headline-xl text-headline-xl text-primary mb-xs">450+</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Deployments</span>
+</div>
+<div class="flex flex-col items-center justify-center p-md">
+<span class="font-headline-xl text-headline-xl text-primary mb-xs">0</span>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Critical Failures</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Testimonial Gallery -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge">
+<h2 class="font-headline-md text-headline-md border-b border-primary pb-sm mb-xl uppercase tracking-wider text-primary">Executive Briefings</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<!-- Video Item 1 -->
+<div class="group relative aspect-video border border-primary bg-surface-container-high overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A professional corporate interview setting. A distinguished female executive sits in a modern, well-lit boardroom with floor-to-ceiling windows overlooking a cityscape. The lighting is bright and high-key, creating a clean, pristine white aesthetic with subtle gray shadows. She is dressed in tailored dark business attire, conveying authority. The mood is serious, competent, and highly professional, fitting an enterprise software testimonial." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCLUnayxIIRDKnk4PFCgEE_70EmQ3f_VoP1306odmI3MYeLLVBtqazUnDd21L4Pm_IiIDQt9oEbtNH72nBcrdGh8vALcx6qtHJT9GyEC7-ufnxqnqjItPjWmr9defsMR_ITX22ACI66MeJewLU6CMsfVpMqD992zyfsTCtEO_XVaZtYbDk1AI_9rWozs6ht0XpJL6KND-OckHeUQoxg6YcR52Qkb1F6lZFGMdXGx-iWB8A8PBoZGI21B1l5u_cBsHd0jHqIYG_fGr4Y');">
+</div>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/40 transition-colors duration-300"></div>
+<button aria-label="Play video" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-surface/90 border border-primary rounded-none flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-on-secondary group-hover:border-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</button>
+<div class="absolute bottom-0 left-0 w-full p-lg bg-gradient-to-t from-primary/90 to-transparent">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-xs">Sarah Jenkins</h3>
+<p class="font-label-sm text-label-sm text-surface-container uppercase">CTO, Global Finance Corp</p>
+</div>
+</div>
+<!-- Video Item 2 -->
+<div class="group relative aspect-video border border-primary bg-surface-container-high overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A premium corporate video production still. A male executive with glasses sits in a stark, minimalist office environment with subtle architectural lines in the background. The scene uses a high-contrast monochromatic base, illuminated by bright, cool-toned studio lights that emphasize clarity and precision. He wears a sharp dark suit. The atmosphere is analytical, authoritative, and deeply technical, aligning with a high-end consulting brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB56rWK4U3XZ-mOkhdmcNck9L9BsulZxp7zGbDjOd9Pf7FNS1Q3XfJHwbJie4PkFLp-cMcUlKeHwzr2LhRFx_PoW7nGyydqSvekqVbSrQhdeEmeFtDpK6UoX_DJ1o2-5jVqsFjpkryWblFXMRhpbURPi47hQsQ8WSzWo5U2T25kfSE-UzkBLckSwb1IGDrrAga4x6bkfahE_qsX0-scoyiEAyBPxFIAtYuhZOl0oCAjJWYJdGIYdy6szRvdQ-4ou9i1svze7L6aJpBR');">
+</div>
+<div class="absolute inset-0 bg-primary/20 group-hover:bg-primary/40 transition-colors duration-300"></div>
+<button aria-label="Play video" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-surface/90 border border-primary rounded-none flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-on-secondary group-hover:border-secondary transition-all duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</button>
+<div class="absolute bottom-0 left-0 w-full p-lg bg-gradient-to-t from-primary/90 to-transparent">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-xs">David Chen</h3>
+<p class="font-label-sm text-label-sm text-surface-container uppercase">VP Engineering, MedTech Innovations</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Masonry Grid of Quotes -->
+<section class="bg-surface-container-low py-huge border-y border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-md text-headline-md border-b border-primary pb-sm mb-xl uppercase tracking-wider text-primary">Client Testimonials</h2>
+<div class="columns-1 md:columns-2 lg:columns-3 gap-lg space-y-lg">
+<!-- Quote Card 1 -->
+<div class="break-inside-avoid border border-primary bg-surface p-xl flex flex-col hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300">
+<span class="material-symbols-outlined text-secondary mb-md text-4xl" data-icon="format_quote">format_quote</span>
+<p class="font-body-lg text-body-lg mb-xl text-on-surface">"Their approach to cloud migration wasn't just technical; it was deeply strategic. They understood our legacy constraints and delivered a modern architecture without disrupting our daily operations."</p>
+<div class="mt-auto flex items-center gap-md border-t border-outline-variant pt-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high border border-outline">
+<img alt="Elena Rodriguez" class="w-full h-full object-cover" data-alt="A professional headshot of a female executive in her 40s. She has a confident, warm expression. The background is a crisp, bright white studio setting. The lighting is soft but precise, creating a modern, high-key light mode aesthetic. The image is a premium portrait that conveys trust and authority in a business context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdqz6TsGbQ2ARa3pDy9CBLUQqxhcA61Q3B3_SLpDAFj9y0h_6iP9dc7pLhXBVKQTZUZbgPgVS0zLEouS68CSS8-VIOp-rhiE2XEiHb-cy8fstDqEf1-LYWjuRttk1jve74f25Wo9XSurJttrzmAxUMrrfndp1qgH2pd3QqfpMBlcPF6xdD11-X7k2XFwWPukrfZ1PQIzhcWQ2XCzrBqnd56fRxriZ6YKWvDaKY2jqQp9rP_1ZghwrZAVHkSbXK_blhquYvryFAWJuP">
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-primary">Elena Rodriguez</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Director of IT, RetailNova</p>
+</div>
+</div>
+</div>
+<!-- Quote Card 2 -->
+<div class="break-inside-avoid border border-primary bg-surface p-xl flex flex-col hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300">
+<span class="material-symbols-outlined text-secondary mb-md text-4xl" data-icon="format_quote">format_quote</span>
+<p class="font-body-lg text-body-lg mb-xl text-on-surface">"TechSupportSites engineers don't just write code; they build highly resilient systems. When our primary data center went offline, their failover protocols executed flawlessly. Not a single transaction was lost."</p>
+<div class="mt-auto flex items-center gap-md border-t border-outline-variant pt-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high border border-outline">
+<img alt="Marcus Johnson" class="w-full h-full object-cover" data-alt="A professional headshot of a male executive in his 50s. He is wearing a sharp, dark grey suit with a white shirt. The background is a pure, stark white, emphasizing a clean and minimalist corporate aesthetic. The lighting is bright and evenly distributed, removing deep shadows and highlighting his experienced, authoritative expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu53z6is8BJemSFqkf43qbHroQvsXl3EcQ6wgog1nwKttbKY_bEE5luYXUIKqy6qhejzEsBDt9lcmG6PAMEXFOqBz-Uejp57nQNadm5tTWjEfjbARZKKmsa2RAyr07nSThMvE_BcuCTC-R7FpoRTW4m5bH72Y8ajOlUl5pVLONdo2b9xiW2hkwHKyOx8RsATnr-8DYJ1ueOr0jd8Oh-VGA4rBm-BXb2trDXEKunJs5UTovtxcE6wwEl2lg0APFiaZjYqGe0EQ-NV-y">
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-primary">Marcus Johnson</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CISO, SecureBank</p>
+</div>
+</div>
+</div>
+<!-- Quote Card 3 (Featured/Accent) -->
+<div class="break-inside-avoid border-2 border-primary bg-primary text-on-primary p-xl flex flex-col">
+<span class="material-symbols-outlined text-secondary mb-md text-4xl" data-icon="format_quote">format_quote</span>
+<p class="font-headline-md text-headline-md mb-xl">"The standard by which we measure all other technical consultancies."</p>
+<div class="mt-auto flex items-center gap-md border-t border-surface-tint pt-md">
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-on-primary">Dr. Aisha Patel</h4>
+<p class="font-label-sm text-label-sm text-inverse-primary">Chief AI Officer, HealthTech Solutions</p>
+</div>
+</div>
+</div>
+<!-- Quote Card 4 -->
+<div class="break-inside-avoid border border-primary bg-surface p-xl flex flex-col hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-300">
+<span class="material-symbols-outlined text-secondary mb-md text-4xl" data-icon="format_quote">format_quote</span>
+<p class="font-body-lg text-body-lg mb-xl text-on-surface">"Integrating legacy manufacturing hardware with modern IoT analytics seemed impossible. They delivered a solution that was elegant, maintainable, and highly secure."</p>
+<div class="mt-auto flex items-center gap-md border-t border-outline-variant pt-md">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-high border border-outline">
+<img alt="Emma Li" class="w-full h-full object-cover" data-alt="A professional headshot of a younger female executive, looking directly at the camera with a slight smile. She is dressed in smart-casual business attire. The setting is a minimalist studio with a stark white background. High-key lighting is used to create a vibrant, clear image that aligns with a modern, high-tech enterprise brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUSxOXps5ghx8upcorfpC9BreEtq2rPq-GLkT46yFSpm31o2PwczEvOCO7qRYxTWg1nIcUOtHwpHvNZCwQLnF69CRWnNa3c54zwkUsJOrxd2VCRc0ulwXdar3AsbjcB4P2xK-MZ7oixcJ58LHYEx--C9LaUxgaNbrngBv0h1FuUFluv9dXIvjuC0uT2m3UpQ-mIYyjC6pOXyZQrv6AsEhd6dGawgJvA9086m-N57ICho8lceHyOiADEIHfuYgZp4old68bhL1Jk392">
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm font-bold text-primary">Emma Li</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">VP Operations, Apex Manufacturing</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-huge text-center">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-lg">Ready to build with precision?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-2xl mx-auto">Join the industry leaders who trust our engineering expertise for their most critical infrastructure.</p>
+<a class="inline-flex bg-secondary text-on-secondary font-label-sm text-label-sm uppercase tracking-widest px-xl py-md rounded-none hover:bg-secondary-container transition-colors" href="/contact">
+                Request a Technical Assessment
+            </a>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container dark:bg-tertiary-container border-t border-primary dark:border-outline-variant w-full py-xxl px-margin-desktop grid grid-cols-12 gap-gutter max-w-container-max mx-auto">
+<div class="col-span-12 md:col-span-4 mb-xl md:mb-0 flex flex-col justify-between">
+<div class="font-display-lg text-display-lg text-primary dark:text-on-tertiary-container font-bold tracking-tighter mb-md">
+                TechSupportSites
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container mt-auto">
+                © 2024 TechSupportSites. All rights reserved. Precision Engineering for Enterprise.
+            </p>
+</div>
+<div class="col-span-12 md:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-lg">
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold mb-xs">Services</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/software-engineering">Software Engineering</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/cloud-strategy">Cloud Strategy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/cybersecurity">Cybersecurity</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/ai-integration">AI Integration</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold mb-xs">Industries</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/financial-services">Financial Services</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/healthcare">Healthcare</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/retail">Retail</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/manufacturing">Manufacturing</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold mb-xs">Legal</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/privacy-policy">Privacy Policy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/terms-of-service">Terms of Service</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/security-disclosure">Security Disclosure</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h4 class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold mb-xs">Connect</h4>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant dark:text-on-tertiary-container hover:text-primary hover:underline decoration-secondary decoration-2 Transition-all duration-300 ease-in-out" href="/contact">Contact</a>
+</div>
+</div>
+</footer>
+
+
+</body></html>

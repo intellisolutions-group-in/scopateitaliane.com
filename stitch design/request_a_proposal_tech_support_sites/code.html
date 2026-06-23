@@ -1,0 +1,436 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>app/request-proposal/page.tsx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#eeeeee",
+                    "primary-fixed": "#e2e2e2",
+                    "tertiary": "#000000",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffd9dd",
+                    "secondary": "#b8174a",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-on-surface": "#f1f1f0",
+                    "surface": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#fd517a",
+                    "primary-container": "#1b1b1b",
+                    "on-surface-variant": "#4c4546",
+                    "on-secondary-fixed-variant": "#900036",
+                    "secondary-fixed-dim": "#ffb2bd",
+                    "surface-variant": "#e2e2e2",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-container-high": "#e8e8e8",
+                    "background": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#c6c6c6",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-primary-container": "#848484",
+                    "surface-tint": "#5e5e5e",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-surface": "#1a1c1c",
+                    "surface-container-low": "#f4f3f3",
+                    "outline-variant": "#cfc4c5",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-secondary-container": "#5a001e",
+                    "on-tertiary-container": "#838484",
+                    "on-secondary-fixed": "#400013",
+                    "inverse-surface": "#2f3131",
+                    "tertiary-container": "#1a1c1c",
+                    "on-background": "#1a1c1c",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "surface-dim": "#dadada",
+                    "on-secondary": "#ffffff",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "outline": "#7e7576"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xl": "32px",
+                    "huge": "80px",
+                    "columns": "12",
+                    "container-max": "1440px",
+                    "md": "16px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "base": "8px",
+                    "xxl": "48px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Manrope"
+                    ],
+                    "display-lg": [
+                            "Manrope"
+                    ],
+                    "display-lg-mobile": [
+                            "Manrope"
+                    ],
+                    "headline-xl": [
+                            "Manrope"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "64px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "40px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-xl": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Modern Minimalist Form Styles */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        
+        .progress-bar-transition {
+            transition: width 0.3s ease-in-out;
+        }
+        
+        /* Step transition animations */
+        .step-enter {
+            opacity: 0;
+            transform: translateX(10px);
+        }
+        .step-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+        .step-exit {
+            opacity: 1;
+        }
+        .step-exit-active {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col">
+<!-- Top AppBar (Simplified for Transactional Flow) -->
+<header class="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-primary">
+<a class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary" href="#">TechSupportSites</a>
+<div class="flex items-center gap-md">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hidden md:inline-block">Secure Checkout</span>
+<span class="material-symbols-outlined" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col md:flex-row w-full max-w-container-max mx-auto">
+<!-- Sidebar - Trust Indicators (Hidden on Mobile, Visible on Desktop) -->
+<aside class="hidden md:flex flex-col w-4/12 bg-surface-container border-r border-primary p-xl justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md mb-xl text-primary">Why Partner With Us</h2>
+<ul class="space-y-lg mb-xxl">
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<div>
+<strong class="block font-label-sm text-label-sm uppercase tracking-widest mb-xs">Precision Engineering</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Architectural patterns rigorously tested in enterprise environments.</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary" data-icon="speed">speed</span>
+<div>
+<strong class="block font-label-sm text-label-sm uppercase tracking-widest mb-xs">Accelerated Delivery</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Streamlined pipelines reducing time-to-market by up to 40%.</p>
+</div>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary" data-icon="security">security</span>
+<div>
+<strong class="block font-label-sm text-label-sm uppercase tracking-widest mb-xs">Zero-Trust Security</strong>
+<p class="font-body-md text-body-md text-on-surface-variant">Baked-in compliance and threat mitigation from day one.</p>
+</div>
+</li>
+</ul>
+</div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-md border-b border-outline-variant pb-xs">Trusted By Industry Leaders</p>
+<div class="grid grid-cols-2 gap-lg opacity-60">
+<!-- Placeholder logos - representing "Swiss Style" typographic marks -->
+<div class="font-display-lg text-display-lg-mobile font-bold tracking-tighter">ACME</div>
+<div class="font-display-lg text-display-lg-mobile font-bold tracking-tighter">GLOBEX</div>
+<div class="font-display-lg text-display-lg-mobile font-bold tracking-tighter">SOYUZ</div>
+<div class="font-display-lg text-display-lg-mobile font-bold tracking-tighter">INITECH</div>
+</div>
+</div>
+</aside>
+<!-- Form Area -->
+<section class="w-full md:w-8/12 p-margin-mobile md:p-margin-desktop bg-surface flex flex-col">
+<!-- Progress Bar -->
+<div class="w-full mb-xxl">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" id="step-indicator">Step 1 of 4</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold" id="step-title">Identity</span>
+</div>
+<div class="w-full h-1 bg-surface-container">
+<div class="h-full bg-primary progress-bar-transition" id="progress-bar" style="width: 25%;"></div>
+</div>
+</div>
+<!-- Form Container -->
+<div class="flex-grow flex flex-col justify-center">
+<form class="max-w-2xl w-full mx-auto" id="proposal-form" onsubmit="event.preventDefault(); nextStep();">
+<!-- Step 1: Identity -->
+<div class="step-container" id="step-1">
+<h1 class="font-headline-xl text-headline-xl mb-xl text-primary">Let's establish your baseline.</h1>
+<div class="space-y-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" for="fullName">Full Name</label>
+<input class="w-full border-b border-primary bg-transparent py-md font-body-lg text-body-lg text-primary focus:border-b-2 focus:border-secondary transition-colors" id="fullName" placeholder="Jane Doe" required="" type="text">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" for="workEmail">Work Email</label>
+<input class="w-full border-b border-primary bg-transparent py-md font-body-lg text-body-lg text-primary focus:border-b-2 focus:border-secondary transition-colors" id="workEmail" placeholder="jane@company.com" required="" type="email">
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" for="companyName">Company Name</label>
+<input class="w-full border-b border-primary bg-transparent py-md font-body-lg text-body-lg text-primary focus:border-b-2 focus:border-secondary transition-colors" id="companyName" placeholder="Acme Corp" required="" type="text">
+</div>
+</div>
+</div>
+<!-- Step 2: Scope (Hidden initially) -->
+<div class="step-container hidden" id="step-2">
+<h1 class="font-headline-xl text-headline-xl mb-xl text-primary">Define the architectural scope.</h1>
+<div class="space-y-lg">
+<fieldset>
+<legend class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mb-md">Primary Objective</legend>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<label class="border border-primary p-md cursor-pointer hover:bg-surface-container transition-colors flex items-center gap-md">
+<input class="text-secondary focus:ring-secondary border-primary" name="objective" required="" type="radio" value="greenfield">
+<span class="font-body-md text-body-md">Greenfield Development</span>
+</label>
+<label class="border border-primary p-md cursor-pointer hover:bg-surface-container transition-colors flex items-center gap-md">
+<input class="text-secondary focus:ring-secondary border-primary" name="objective" type="radio" value="legacy">
+<span class="font-body-md text-body-md">Legacy Modernization</span>
+</label>
+<label class="border border-primary p-md cursor-pointer hover:bg-surface-container transition-colors flex items-center gap-md">
+<input class="text-secondary focus:ring-secondary border-primary" name="objective" type="radio" value="cloud">
+<span class="font-body-md text-body-md">Cloud Migration</span>
+</label>
+<label class="border border-primary p-md cursor-pointer hover:bg-surface-container transition-colors flex items-center gap-md">
+<input class="text-secondary focus:ring-secondary border-primary" name="objective" type="radio" value="audit">
+<span class="font-body-md text-body-md">Security/Performance Audit</span>
+</label>
+</div>
+</fieldset>
+<div class="flex flex-col gap-xs mt-xl">
+<label class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant" for="projectDetails">Brief Context (Optional)</label>
+<textarea class="w-full border-b border-primary bg-transparent py-md font-body-lg text-body-lg text-primary focus:border-b-2 focus:border-secondary transition-colors resize-none" id="projectDetails" placeholder="We need to scale our microservices..." rows="3"></textarea>
+</div>
+</div>
+</div>
+<!-- Navigation Actions -->
+<div class="mt-huge flex justify-between items-center pt-xl border-t border-outline-variant">
+<button class="hidden font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors items-center gap-xs" id="btn-back" onclick="prevStep()" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                            Back
+                        </button>
+<div class="flex-grow"></div> <!-- Spacer -->
+<button class="bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest px-xl py-md hover:bg-secondary transition-colors duration-300 flex items-center gap-sm" id="btn-next" type="submit">
+                    Next Step
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer (Simplified for Transactional Flow) -->
+<footer class="w-full py-xl px-margin-mobile md:px-margin-desktop border-t border-primary bg-surface flex justify-between items-center">
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">© 2024 TechSupportSites.</p>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary" href="#">Privacy</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-primary" href="#">Terms</a>
+</div>
+</footer>
+<script>
+        let currentStep = 1;
+        const totalSteps = 4; // Visual representation only for this demo
+        const stepTitles = ["Identity", "Scope", "Budget", "Timeline"];
+
+        function updateUI() {
+            // Update Progress Bar
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+            document.getElementById('step-indicator').innerText = `Step ${currentStep} of ${totalSteps}`;
+            document.getElementById('step-title').innerText = stepTitles[currentStep - 1] || "Finalize";
+
+            // Show/Hide Back Button
+            const backBtn = document.getElementById('btn-back');
+            if (currentStep > 1) {
+                backBtn.classList.remove('hidden');
+                backBtn.classList.add('flex');
+            } else {
+                backBtn.classList.add('hidden');
+                backBtn.classList.remove('flex');
+            }
+
+            // Update Next Button Text
+            const nextBtn = document.getElementById('btn-next');
+            if (currentStep === 2) { // Simulating last step for this demo
+                nextBtn.innerHTML = `
+                    Generate Engineering Brief
+                    <span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+                `;
+                nextBtn.classList.remove('bg-primary');
+                nextBtn.classList.add('bg-secondary');
+            } else {
+                nextBtn.innerHTML = `
+                    Next Step
+                    <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                `;
+                nextBtn.classList.add('bg-primary');
+                nextBtn.classList.remove('bg-secondary');
+            }
+        }
+
+        function showStep(stepIndex) {
+            // Hide all steps
+            document.querySelectorAll('.step-container').forEach(el => {
+                el.classList.add('hidden');
+            });
+            
+            // Show target step
+            const targetStep = document.getElementById(`step-${stepIndex}`);
+            if (targetStep) {
+                targetStep.classList.remove('hidden');
+                // Simple animation hook
+                targetStep.style.opacity = '0';
+                targetStep.style.transform = 'translateX(10px)';
+                setTimeout(() => {
+                    targetStep.style.transition = 'opacity 300ms, transform 300ms';
+                    targetStep.style.opacity = '1';
+                    targetStep.style.transform = 'translateX(0)';
+                }, 10);
+            }
+        }
+
+        function nextStep() {
+            if (currentStep < 2) { // Limited to 2 steps for HTML simplicity
+                currentStep++;
+                updateUI();
+                showStep(currentStep);
+            } else {
+                alert("Form submitted successfully. Generating Engineering Brief...");
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+                showStep(currentStep);
+            }
+        }
+
+        // Initialize UI
+        updateUI();
+    </script>
+
+
+</body></html>
