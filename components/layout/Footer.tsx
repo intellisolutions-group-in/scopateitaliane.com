@@ -18,9 +18,9 @@ export default function Footer() {
             <Image 
               src="/images/ScopatelitallianeLogo-01.png"
               alt="Scopate Italiane Logo"
-              width={162}
-              height={36}
-              className="h-9 w-auto object-contain brightness-0 invert"
+              width={144}
+              height={32}
+              className="h-8 md:h-9 w-auto object-contain"
             />
           </div>
           <p className="font-sans text-xs text-neutral-400 max-w-[280px] leading-relaxed mt-sm">
