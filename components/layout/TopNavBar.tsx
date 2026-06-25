@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface TopNavBarProps {
   active?: string;
@@ -78,9 +79,16 @@ export default function TopNavBar({ active }: TopNavBarProps) {
         {/* Brand Logo */}
         <Link 
           href="/" 
-          className="font-display text-lg font-bold tracking-tighter text-primary hover:text-secondary transition-colors"
+          className="flex items-center hover:opacity-90 transition-opacity"
         >
-          ScopateItaliane<span className="text-secondary">.</span>
+          <Image 
+            src="/images/ScopatelitallianeLogo-01.png"
+            alt="Scopate Italiane Logo"
+            width={144}
+            height={32}
+            priority
+            className="h-8 md:h-9 w-auto object-contain"
+          />
         </Link>
 
         {/* Desktop Links */}

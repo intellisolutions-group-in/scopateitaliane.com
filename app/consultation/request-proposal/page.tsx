@@ -3,12 +3,22 @@
 import React from "react";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   return (
     <>
       <header className="sticky top-0 z-50 w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop h-huge bg-surface border-b border-neutral-200/80">
-<Link className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg font-bold tracking-tighter text-primary" href="/contact">ScopateItaliane</Link>
+        <Link className="flex items-center hover:opacity-90 transition-opacity" href="/">
+          <Image 
+            src="/images/ScopatelitallianeLogo-01.png"
+            alt="Scopate Italiane Logo"
+            width={144}
+            height={32}
+            className="h-8 w-auto object-contain"
+            priority
+          />
+        </Link>
 <div className="flex items-center gap-md">
 <span className="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hidden md:inline-block">Secure Checkout</span>
 <span className="material-symbols-outlined" data-icon="lock" data-weight="fill" style={{fontVariationSettings: '"FILL" 1'}}>lock</span>

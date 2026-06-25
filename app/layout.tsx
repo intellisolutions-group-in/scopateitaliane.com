@@ -16,6 +16,13 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "ScopateItaliane | Precision Enterprise Engineering",
   description: "Precision software development, cloud infrastructure, AI integrations, and technical consulting.",
+  icons: {
+    icon: [
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/images/favicon.ico",
+  },
 };
 
 export default function RootLayout({

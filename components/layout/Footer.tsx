@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -13,22 +14,14 @@ export default function Footer() {
 
         {/* Left Column (Brand Block) */}
         <div className="col-span-1 md:col-span-4 flex flex-col gap-md">
-          <div className="flex items-center gap-3">
-            {/* Custom Theme Interlocking Isometric SVG Logo Icon */}
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0 drop-shadow-[0_0_8px_rgba(203,41,87,0.3)]">
-              {/* Left Interlocking Bracket (Theme Magenta #CB2957) */}
-              <path d="M16 4L4 10V26L16 32V20L8 16V10L16 6V4Z" fill="#CB2957" />
-              {/* Right Interlocking Bracket (Theme Indigo #6366F1) */}
-              <path d="M20 4V6L28 10V16L20 20V32L32 26V10L20 4Z" fill="#6366F1" />
-            </svg>
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-lg font-extrabold uppercase tracking-tight text-white">
-                SCOPATE<span className="text-[#CB2957]">ITALIANE</span>
-              </span>
-              <span className="font-sans text-[9px] uppercase tracking-widest text-neutral-500 font-bold">
-                Enterprise Engineering
-              </span>
-            </div>
+          <div className="flex items-center">
+            <Image 
+              src="/images/ScopatelitallianeLogo-01.png"
+              alt="Scopate Italiane Logo"
+              width={162}
+              height={36}
+              className="h-9 w-auto object-contain brightness-0 invert"
+            />
           </div>
           <p className="font-sans text-xs text-neutral-400 max-w-[280px] leading-relaxed mt-sm">
             High-performance systems engineering, cloud architecture optimization, and zero-trust security integrations.
