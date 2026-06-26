@@ -14,8 +14,15 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "ScopateItaliane | Precision Enterprise Engineering",
+  metadataBase: new URL("https://scopateitaliane.com"),
+  title: {
+    default: "Scopate Italiane Digital | Precision Enterprise Engineering",
+    template: "%s | Scopate Italiane Digital"
+  },
   description: "Precision software development, cloud infrastructure, AI integrations, and technical consulting.",
+  alternates: {
+    canonical: "./",
+  },
   icons: {
     icon: [
       { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -23,7 +30,30 @@ export const metadata: Metadata = {
     ],
     shortcut: "/images/favicon.ico",
   },
+  openGraph: {
+    title: "Scopate Italiane Digital | Precision Enterprise Engineering",
+    description: "Precision software development, cloud infrastructure, AI integrations, and technical consulting.",
+    url: "https://scopateitaliane.com",
+    siteName: "Scopate Italiane Digital",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scopate Italiane Digital | Precision Enterprise Engineering",
+    description: "Precision software development, cloud infrastructure, AI integrations, and technical consulting.",
+  }
 };
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Scopate Italiane Digital",
+  "url": "https://scopateitaliane.com",
+  "logo": "https://scopateitaliane.com/images/ScopatelitallianeLogo-01.png",
+  "description": "Precision software development, cloud infrastructure, AI integrations, and technical consulting."
+};
+
 
 export default function RootLayout({
   children,
@@ -38,6 +68,10 @@ export default function RootLayout({
       <head>
         {/* eslint-disable-next-line @next/next/google-font-display, @next/next/no-page-custom-font */}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-surface-container text-primary selection:bg-secondary selection:text-white">
         <div className="relative min-h-screen overflow-x-clip flex flex-col flex-grow">
