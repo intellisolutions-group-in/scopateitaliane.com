@@ -18,13 +18,13 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const normalizedX = (x / rect.width) - 0.5;
     const normalizedY = (y / rect.height) - 0.5;
-    
+
     const rotX = -normalizedY * 8; // Max 8 degrees tilt
     const rotY = normalizedX * 8;
-    
+
     card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
     card.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease";
   };
@@ -42,7 +42,7 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
       <div className="progress-container">
         <div className="progress-bar" id="myBar"></div>
       </div>
-      
+
       <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden bg-surface-container/10">
         <ThreeHeroBg />
 
@@ -50,35 +50,24 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
           <div className="flex items-center space-x-md mb-lg">
             <span className="font-label-sm text-label-sm uppercase text-secondary px-sm py-xs border border-secondary bg-white font-bold">{post.category}</span>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-bold">{post.readTime}</span>
-            <span className="font-label-sm text-label-sm text-on-surface-variant font-bold">{post.date}</span>
           </div>
           <h1 className="gsap-hero-animate font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-xl leading-tight">{post.title}</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-xl border-l-2 border-neutral-200/80 pl-md">
             {post.desc}
           </p>
-          <div className="flex items-center space-x-md border-t border-neutral-200/80 pt-md">
-            <img 
-              alt={post.author.name} 
-              className="w-12 h-12 rounded-full border border-neutral-200/80" 
-              src={post.author.image} 
-            />
-            <div>
-              <p className="font-label-sm text-label-sm text-primary">{post.author.name}</p>
-              <p className="font-label-sm text-label-sm text-on-surface-variant font-normal">{post.author.role}</p>
-            </div>
-          </div>
+
         </header>
 
         <figure className="w-full mb-huge max-w-[1000px] mx-auto z-10 relative cursor-pointer">
-          <div 
+          <div
             className="w-full"
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
           >
-            <img 
-              alt={post.title} 
-              className="w-full aspect-video object-cover border border-neutral-200/80 rounded-2xl shadow-md transition-transform duration-500 hover:scale-[1.01]" 
-              src={post.image} 
+            <img
+              alt={post.title}
+              className="w-full aspect-video object-cover border border-neutral-200/80 rounded-2xl shadow-md transition-transform duration-500 hover:scale-[1.01]"
+              src={post.image}
             />
           </div>
           <figcaption className="font-label-sm text-label-sm text-on-surface-variant mt-sm text-center">Fig 1. Systems architecture visualization.</figcaption>
@@ -140,43 +129,27 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
             <span className="px-md py-xs border border-neutral-200/80 font-label-sm text-label-sm rounded-2xl bg-white">Systems Engineering</span>
             <span className="px-md py-xs border border-neutral-200/80 font-label-sm text-label-sm rounded-2xl bg-white">Automation</span>
           </div>
-          <div className="flex items-center space-x-md">
-            <span className="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold">Share</span>
-            <button className="w-8 h-8 flex items-center justify-center border border-neutral-200/80 rounded-full hover:bg-primary hover:text-white transition-colors bg-white cursor-pointer"><span className="material-symbols-outlined text-[20px]">share</span></button>
-            <button className="w-8 h-8 flex items-center justify-center border border-neutral-200/80 rounded-full hover:bg-primary hover:text-white transition-colors bg-white cursor-pointer"><span className="material-symbols-outlined text-[20px]">bookmark</span></button>
-          </div>
+
         </div>
 
-        <div className="max-w-[700px] mx-auto mt-huge bg-white p-xl border border-neutral-200/80 rounded-2xl flex flex-col md:flex-row gap-xl items-start shadow-sm z-10 relative">
-          <img 
-            alt={post.author.name} 
-            className="w-24 h-24 rounded-full shrink-0 border border-neutral-200/80 shadow-md" 
-            src={post.author.image} 
-          />
-          <div>
-            <h4 className="font-headline-md text-[24px] text-primary mb-sm">{post.author.name}</h4>
-            <p className="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-md">{post.author.role}</p>
-            <p className="font-body-md text-body-md text-on-surface-variant mb-md">{post.author.bio}</p>
-            <Link className="font-label-sm text-label-sm text-primary underline decoration-2 hover:text-secondary transition-colors" href="/blog">View all articles</Link>
-          </div>
-        </div>
+
 
         <section className="mt-huge pt-huge border-t border-neutral-200/80 z-10 relative">
           <h2 className="font-headline-xl text-headline-xl text-primary mb-xl">Related Insights</h2>
           <div className="gsap-stagger-container grid grid-cols-1 md:grid-cols-12 gap-gutter">
 
             {relatedPosts[0] && (
-              <Link 
-                className="md:col-span-8 group block border border-neutral-200/80 rounded-2xl bg-white hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] transition-all duration-300 h-full flex flex-col overflow-hidden cursor-pointer" 
+              <Link
+                className="md:col-span-8 group block border border-neutral-200/80 rounded-2xl bg-white hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] transition-all duration-300 h-full flex flex-col overflow-hidden cursor-pointer"
                 href={relatedPosts[0].link}
                 onMouseMove={handleCardMouseMove}
                 onMouseLeave={handleCardMouseLeave}
               >
                 <div className="min-h-[16rem] h-auto overflow-hidden relative border-b border-neutral-200/80 w-full">
-                  <img 
-                    alt={relatedPosts[0].title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" 
-                    src={relatedPosts[0].image} 
+                  <img
+                    alt={relatedPosts[0].title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    src={relatedPosts[0].image}
                   />
                   <div className="absolute top-md left-md bg-white px-sm py-xs border border-neutral-200/80 font-label-sm text-label-sm text-primary rounded-2xl">{relatedPosts[0].category}</div>
                 </div>
@@ -192,9 +165,9 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
 
             <div className="md:col-span-4 flex flex-col gap-gutter">
               {relatedPosts.slice(1, 3).map((rel) => (
-                <Link 
+                <Link
                   key={rel.slug}
-                  className="group block border border-neutral-200/80 rounded-2xl bg-white hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] transition-all duration-300 flex-1 p-lg flex flex-col justify-between overflow-hidden cursor-pointer" 
+                  className="group block border border-neutral-200/80 rounded-2xl bg-white hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] transition-all duration-300 flex-1 p-lg flex flex-col justify-between overflow-hidden cursor-pointer"
                   href={rel.link}
                   onMouseMove={handleCardMouseMove}
                   onMouseLeave={handleCardMouseLeave}

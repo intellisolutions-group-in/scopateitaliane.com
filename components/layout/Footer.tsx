@@ -15,7 +15,7 @@ export default function Footer() {
         {/* Left Column (Brand Block) */}
         <div className="col-span-1 md:col-span-4 flex flex-col gap-md">
           <div className="flex items-center">
-            <Image 
+            <Image
               src="/images/ScopatelitallianeLogo-01.png"
               alt="Scopate Italiane Logo"
               width={162}
@@ -27,16 +27,7 @@ export default function Footer() {
             High-performance systems engineering, cloud architecture optimization, and zero-trust security integrations.
           </p>
 
-          {/* Live System Status - High-Tech Dev Theme */}
-          <div className="mt-md flex items-center gap-2 bg-neutral-900/80 border border-neutral-800/60 rounded-full px-3.5 py-1.5 w-fit">
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="font-sans text-[10px] uppercase tracking-wider text-neutral-400 font-semibold">
-              Systems Nominal // 99.99% SLA
-            </span>
-          </div>
+
         </div>
 
         {/* Solutions Link Column */}
@@ -141,14 +132,14 @@ export default function Footer() {
                 <rect x="0" y="0" width="900" height="130" fill="url(#fadeMask)" />
               </mask>
             </defs>
-            <text 
-              x="2" 
-              y="112" 
+            <text
+              x="2"
+              y="112"
               textLength="896"
               lengthAdjust="spacingAndGlyphs"
-              fill="none" 
-              stroke="url(#textGradient)" 
-              strokeWidth="2.5" 
+              fill="none"
+              stroke="url(#textGradient)"
+              strokeWidth="2.5"
               mask="url(#textMask)"
               style={{
                 fontFamily: "var(--font-display), sans-serif",

@@ -16,13 +16,13 @@ export default function Page() {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const normalizedX = (x / rect.width) - 0.5;
     const normalizedY = (y / rect.height) - 0.5;
-    
+
     const rotX = -normalizedY * 8; // Max 8 degrees tilt
     const rotY = normalizedX * 8;
-    
+
     card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
     card.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease";
   };
@@ -43,10 +43,10 @@ export default function Page() {
   // Pagination Logic
   const postsPerPage = 6;
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
-  
+
   // Safety check for page out of bounds when category changes
   const activePage = Math.min(currentPage, totalPages || 1);
-  
+
   const startIndex = (activePage - 1) * postsPerPage;
   const paginatedPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
 
@@ -71,17 +71,17 @@ export default function Page() {
 
         {/* Featured Analysis Section - Only visible on first page of All Insights */}
         {activePage === 1 && selectedCategory === "All Insights" && (
-          <Link 
+          <Link
             href={featuredPost.link}
             className="gsap-stagger-container grid grid-cols-1 md:grid-cols-12 gap-gutter items-center border border-neutral-200/80 p-md bg-white rounded-2xl text-primary shadow-md hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] hover:border-secondary/40 transition-all duration-300 cursor-pointer z-10 relative animate-in fade-in duration-500 block"
             onMouseMove={handleCardMouseMove}
             onMouseLeave={handleCardMouseLeave}
           >
             <div className="md:col-span-7 aspect-video relative overflow-hidden group border border-neutral-200/60 rounded-xl">
-              <img 
-                alt={featuredPost.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                src={featuredPost.image} 
+              <img
+                alt={featuredPost.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                src={featuredPost.image}
               />
               <div className="absolute top-md left-md bg-white/90 backdrop-blur-sm px-md py-xs border border-neutral-200/80 rounded-lg shadow-sm">
                 <span className="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Featured Analysis</span>
@@ -90,8 +90,6 @@ export default function Page() {
             <div className="md:col-span-5 flex flex-col gap-md p-lg">
               <div className="flex items-center gap-sm text-on-surface-variant font-label-sm text-label-sm">
                 <span className="">{featuredPost.category}</span>
-                <span className="">•</span>
-                <span className="">{featuredPost.date}</span>
                 <span className="">•</span>
                 <span className="">{featuredPost.readTime}</span>
               </div>
@@ -102,10 +100,10 @@ export default function Page() {
                 {featuredPost.desc}
               </p>
               <div className="mt-md">
-                <div 
+                <div
                   className="border border-neutral-200/80 group-hover:bg-neutral-50 text-primary font-sans text-xs uppercase tracking-widest px-md py-3 rounded-full flex items-center gap-xs transition-colors w-fit font-bold"
                 >
-                  Read Article 
+                  Read Article
                   <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </div>
               </div>
@@ -113,39 +111,12 @@ export default function Page() {
           </Link>
         )}
 
-        {/* Filters */}
-        <section className="flex flex-col md:flex-row justify-between items-start md:items-center gap-lg border-b border-neutral-200/80 pb-md z-10 relative">
-          <div className="flex flex-wrap gap-sm">
-            {categories.map((cat) => (
-              <button 
-                key={cat}
-                onClick={() => handleCategorySelect(cat)}
-                className={`filter-pill cursor-pointer ${selectedCategory === cat ? "active" : ""}`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-          <div className="relative w-full md:w-auto">
-            <span className="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-neutral-400 text-[20px]">filter_list</span>
-            <select 
-              value={selectedCategory}
-              onChange={(e) => handleCategorySelect(e.target.value)}
-              className="pl-[36px] pr-xxl py-xs border border-neutral-200/80 bg-white text-primary focus:outline-none focus:border-secondary font-label-sm text-label-sm appearance-none w-full md:w-[200px] uppercase tracking-widest cursor-pointer rounded-full outline-none"
-            >
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
-            <span className="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-neutral-450 text-[20px] pointer-events-none">expand_more</span>
-          </div>
-        </section>
 
         {/* Grid of Articles */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter z-10 relative min-h-[400px]">
           {paginatedPosts.length > 0 ? (
             paginatedPosts.map((post) => (
-              <Link 
+              <Link
                 href={post.link}
                 key={post.slug}
                 className="flex flex-col border border-neutral-200/80 bg-white rounded-2xl overflow-hidden group cursor-pointer hover:border-secondary/40 hover:shadow-[0_8px_30px_rgba(203,41,87,0.12)] transition-all duration-300 text-primary animate-in fade-in duration-300"
@@ -153,17 +124,16 @@ export default function Page() {
                 onMouseLeave={handleCardMouseLeave}
               >
                 <div className="aspect-[16/9] relative border-b border-neutral-200/80 overflow-hidden bg-neutral-100 w-full">
-                  <img 
+                  <img
                     alt={post.title}
-                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.03]" 
-                    src={post.image} 
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-[1.03]"
+                    src={post.image}
                   />
                 </div>
                 <div className="p-lg flex flex-col flex-grow gap-sm justify-between w-full">
                   <div>
                     <div className="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest mb-xs">
                       <span className="text-secondary font-bold">{post.category}</span>
-                      <span className="">{post.date.split(",")[0]}</span>
                     </div>
                     <h3 className="font-headline-md text-headline-md text-primary leading-tight group-hover:text-secondary transition-colors">
                       {post.title}
@@ -189,32 +159,31 @@ export default function Page() {
         {/* Dynamic Pagination */}
         {totalPages > 1 && (
           <section className="flex justify-center items-center gap-sm pt-xl border-t border-neutral-200/80 z-10 relative">
-            <button 
+            <button
               disabled={activePage === 1}
               onClick={() => handlePageChange(activePage - 1)}
               className="border border-neutral-200/80 w-10 h-10 flex items-center justify-center hover:border-secondary rounded-full transition-colors group disabled:opacity-30 disabled:cursor-not-allowed bg-white cursor-pointer"
             >
               <span className="material-symbols-outlined text-neutral-400 group-hover:text-secondary transition-colors text-[20px]">chevron_left</span>
             </button>
-            
+
             {Array.from({ length: totalPages }).map((_, i) => {
               const pageNum = i + 1;
               return (
                 <button
                   key={pageNum}
                   onClick={() => handlePageChange(pageNum)}
-                  className={`border font-label-sm text-label-sm w-10 h-10 flex items-center justify-center rounded-full transition-all cursor-pointer ${
-                    activePage === pageNum
-                      ? "bg-secondary text-white border-secondary font-bold shadow-sm"
-                      : "bg-white text-primary border-neutral-200/80 hover:border-secondary hover:text-secondary"
-                  }`}
+                  className={`border font-label-sm text-label-sm w-10 h-10 flex items-center justify-center rounded-full transition-all cursor-pointer ${activePage === pageNum
+                    ? "bg-secondary text-white border-secondary font-bold shadow-sm"
+                    : "bg-white text-primary border-neutral-200/80 hover:border-secondary hover:text-secondary"
+                    }`}
                 >
                   {pageNum}
                 </button>
               );
             })}
-            
-            <button 
+
+            <button
               disabled={activePage === totalPages}
               onClick={() => handlePageChange(activePage + 1)}
               className="border border-neutral-200/80 w-10 h-10 flex items-center justify-center hover:border-secondary rounded-full transition-colors group disabled:opacity-30 disabled:cursor-not-allowed bg-white cursor-pointer"
@@ -235,10 +204,10 @@ export default function Page() {
           </div>
           <div className="md:w-1/2 w-full flex flex-col gap-sm z-10">
             <form className="flex flex-col sm:flex-row gap-sm w-full">
-              <input 
-                className="flex-grow bg-surface-container-low border border-neutral-200/80 text-primary px-md py-[12px] font-label-sm text-label-sm uppercase tracking-widest focus:outline-none focus:border-[#CB2957] placeholder:text-neutral-500 rounded-xl outline-none" 
-                placeholder="ENTER ENTERPRISE EMAIL" 
-                type="email" 
+              <input
+                className="flex-grow bg-surface-container-low border border-neutral-200/80 text-primary px-md py-[12px] font-label-sm text-label-sm uppercase tracking-widest focus:outline-none focus:border-[#CB2957] placeholder:text-neutral-500 rounded-xl outline-none"
+                placeholder="ENTER ENTERPRISE EMAIL"
+                type="email"
               />
               <button className="btn-accent" type="submit">
                 Subscribe
