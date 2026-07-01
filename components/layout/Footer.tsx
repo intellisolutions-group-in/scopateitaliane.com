@@ -183,21 +183,7 @@ export default function Footer() {
             <Link href="/legal/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/legal/terms-and-conditions" className="hover:text-white transition-colors">Terms</Link>
           </div>
-          <Link
-            href="/sitemap.xml"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-7 h-7 rounded-full border border-neutral-800 bg-neutral-900/50 p-1.5 flex items-center justify-center hover:border-white hover:text-white transition-all"
-            title="Sitemap"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-network w-3.5 h-3.5">
-              <rect x="16" y="16" width="6" height="6" rx="1" />
-              <rect x="2" y="16" width="6" height="6" rx="1" />
-              <rect x="9" y="2" width="6" height="6" rx="1" />
-              <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3" />
-              <path d="M12 12V8" />
-            </svg>
-          </Link>
+
         </div>
       </div>
     </footer>
