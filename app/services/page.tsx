@@ -12,13 +12,13 @@ export default function Page() {
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const normalizedX = (x / rect.width) - 0.5;
     const normalizedY = (y / rect.height) - 0.5;
-    
+
     const rotX = -normalizedY * 8; // Max 8 degrees tilt
     const rotY = normalizedX * 8;
-    
+
     card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
     card.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease";
   };
@@ -75,33 +75,33 @@ export default function Page() {
       icon: "terminal",
       color: "text-secondary",
       items: [
-        { 
-          label: "Custom ERP Systems", 
-          desc: "Centralize inventory, automate accounting, manage human resources, and track supply chains.", 
-          link: "/services/custom-erp", 
+        {
+          label: "Custom ERP Systems",
+          desc: "Centralize inventory, automate accounting, manage human resources, and track supply chains.",
+          link: "/services/custom-erp",
           icon: "business",
-          tech: ["PostgreSQL", "Python", "React"] 
+          tech: ["PostgreSQL", "Python", "React"]
         },
-        { 
-          label: "Custom CRM Platforms", 
-          desc: "Tailored sales pipelines, customer touchpoint logs, and automated lead response tracking.", 
-          link: "/services/custom-crm", 
+        {
+          label: "Custom CRM Platforms",
+          desc: "Tailored sales pipelines, customer touchpoint logs, and automated lead response tracking.",
+          link: "/services/custom-crm",
           icon: "groups",
-          tech: ["Node.js", "MongoDB", "TypeScript"] 
+          tech: ["Node.js", "MongoDB", "TypeScript"]
         },
-        { 
-          label: "Website Development", 
-          desc: "Premium, responsive web applications engineered for speed, SEO, and visual excellence.", 
-          link: "/services/website-development", 
+        {
+          label: "Website Development",
+          desc: "Premium, responsive web applications engineered for speed, SEO, and visual excellence.",
+          link: "/services/website-development",
           icon: "code",
-          tech: ["Next.js", "React", "Tailwind"] 
+          tech: ["Next.js", "React", "Tailwind"]
         },
-        { 
-          label: "Mobile App Development", 
-          desc: "Native and cross-platform mobile apps for iOS and Android with offline-first support.", 
-          link: "/services/mobile-app-development", 
+        {
+          label: "Mobile App Development",
+          desc: "Native and cross-platform mobile apps for iOS and Android with offline-first support.",
+          link: "/services/mobile-app-development",
           icon: "smartphone",
-          tech: ["Flutter", "Swift", "Kotlin"] 
+          tech: ["Flutter", "Swift", "Kotlin"]
         }
       ]
     },
@@ -111,33 +111,33 @@ export default function Page() {
       icon: "shield",
       color: "text-teal-500",
       items: [
-        { 
-          label: "Cloud Infrastructure", 
-          desc: "High-availability, multi-region AWS and GCP setups with autoscaling Kubernetes clusters.", 
-          link: "/services/cloud-infrastructure", 
+        {
+          label: "Cloud Infrastructure",
+          desc: "High-availability, multi-region AWS and GCP setups with autoscaling Kubernetes clusters.",
+          link: "/services/cloud-infrastructure",
           icon: "cloud",
-          tech: ["AWS", "Kubernetes", "Terraform"] 
+          tech: ["AWS", "Kubernetes", "Terraform"]
         },
-        { 
-          label: "Cybersecurity Services", 
-          desc: "Zero-trust network setups, identity-aware API proxies, and comprehensive penetration diagnostics.", 
-          link: "/services/cybersecurity", 
+        {
+          label: "Cybersecurity Services",
+          desc: "Zero-trust network setups, identity-aware API proxies, and comprehensive penetration diagnostics.",
+          link: "/services/cybersecurity",
           icon: "lock",
-          tech: ["Wazuh", "Snort", "HashiCorp Vault"] 
+          tech: ["Wazuh", "Snort", "HashiCorp Vault"]
         },
-        { 
-          label: "DevOps & CI/CD", 
-          desc: "Automated code integration, unit testing runners, and blue-green staging-to-prod deployment setups.", 
-          link: "/services/devops-cicd", 
+        {
+          label: "DevOps & CI/CD",
+          desc: "Automated code integration, unit testing runners, and blue-green staging-to-prod deployment setups.",
+          link: "/services/devops-cicd",
           icon: "sync_alt",
-          tech: ["GitHub Actions", "Docker", "Ansible"] 
+          tech: ["GitHub Actions", "Docker", "Ansible"]
         },
-        { 
-          label: "Hosting & Gateways", 
-          desc: "Premium, managed hosting and low-latency API gateways with edge network caching and caching checks.", 
-          link: "/services/hosting-gateway", 
+        {
+          label: "Hosting & Gateways",
+          desc: "Premium, managed hosting and low-latency API gateways with edge network caching and caching checks.",
+          link: "/services/hosting-gateway",
           icon: "dns",
-          tech: ["Nginx", "Cloudflare", "Redis"] 
+          tech: ["Nginx", "Cloudflare", "Redis"]
         }
       ]
     },
@@ -147,33 +147,33 @@ export default function Page() {
       icon: "psychology",
       color: "text-indigo-500",
       items: [
-        { 
-          label: "AI & Machine Learning", 
-          desc: "Custom predictive models, text processing models, and deep learning pipelines.", 
-          link: "/services/ai-machine-learning", 
+        {
+          label: "AI & Machine Learning",
+          desc: "Custom predictive models, text processing models, and deep learning pipelines.",
+          link: "/services/ai-machine-learning",
           icon: "memory",
-          tech: ["Python ML", "PyTorch", "OpenAI API"] 
+          tech: ["Python ML", "PyTorch", "OpenAI API"]
         },
-        { 
-          label: "Data Analytics & BI", 
-          desc: "Real-time log analytics, database visualization dashboards, and executive performance reviews.", 
-          link: "/services/data-analytics-bi", 
+        {
+          label: "Data Analytics & BI",
+          desc: "Real-time log analytics, database visualization dashboards, and executive performance reviews.",
+          link: "/services/data-analytics-bi",
           icon: "monitoring",
-          tech: ["Apache Kafka", "TimescaleDB", "Metabase"] 
+          tech: ["Apache Kafka", "TimescaleDB", "Metabase"]
         },
-        { 
-          label: "IT Consulting", 
-          desc: "System validation workshops, migration advisory, and modern architecture design reviews.", 
-          link: "/services/it-consulting", 
+        {
+          label: "IT Consulting",
+          desc: "System validation workshops, migration advisory, and modern architecture design reviews.",
+          link: "/services/it-consulting",
           icon: "support_agent",
-          tech: ["Systems Design", "Scale Auditing", "RFC Mapping"] 
+          tech: ["Systems Design", "Scale Auditing", "RFC Mapping"]
         },
-        { 
-          label: "UI/UX Design", 
-          desc: "Interactive wireframes, screen flow prototyping, and consistent CSS styling systems.", 
-          link: "/services/ui-ux-design", 
+        {
+          label: "UI/UX Design",
+          desc: "Interactive wireframes, screen flow prototyping, and consistent CSS styling systems.",
+          link: "/services/ui-ux-design",
           icon: "brush",
-          tech: ["Figma", "Design Systems", "Usability Tests"] 
+          tech: ["Figma", "Design Systems", "Usability Tests"]
         }
       ]
     },
@@ -183,33 +183,33 @@ export default function Page() {
       icon: "campaign",
       color: "text-rose-500",
       items: [
-        { 
-          label: "Digital Marketing", 
-          desc: "Conversion tracking, marketing telemetry loops, and creative lead funnel analytics.", 
-          link: "/services/digital-marketing", 
+        {
+          label: "Digital Marketing",
+          desc: "Conversion tracking, marketing telemetry loops, and creative lead funnel analytics.",
+          link: "/services/digital-marketing",
           icon: "public",
-          tech: ["Meta Pixel", "HubSpot", "Google Analytics"] 
+          tech: ["Meta Pixel", "HubSpot", "Google Analytics"]
         },
-        { 
-          label: "Google Ads", 
-          desc: "Optimized pay-per-click setups, audience segmentation, and ROI-driven tracking tools.", 
-          link: "/services/google-ads", 
+        {
+          label: "Google Ads",
+          desc: "Optimized pay-per-click setups, audience segmentation, and ROI-driven tracking tools.",
+          link: "/services/google-ads",
           icon: "ads_click",
-          tech: ["PPC Strategy", "Conversion Tracking", "Search Ads"] 
+          tech: ["PPC Strategy", "Conversion Tracking", "Search Ads"]
         },
-        { 
-          label: "SEO Optimization", 
-          desc: "Technical SEO audits, semantic tag structure checks, and core web vitals optimization.", 
-          link: "/services/seo", 
+        {
+          label: "SEO Optimization",
+          desc: "Technical SEO audits, semantic tag structure checks, and core web vitals optimization.",
+          link: "/services/seo",
           icon: "search",
-          tech: ["SEO Audit", "Page Speed", "Structured Data"] 
+          tech: ["SEO Audit", "Page Speed", "Structured Data"]
         },
-        { 
-          label: "Branding & Identity", 
-          desc: "Corporate brand systems, visual style guidelines, typography palettes, and asset packs.", 
-          link: "/services/branding", 
+        {
+          label: "Branding & Identity",
+          desc: "Corporate brand systems, visual style guidelines, typography palettes, and asset packs.",
+          link: "/services/branding",
           icon: "palette",
-          tech: ["Brand Strategy", "Logo Assets", "Visual Systems"] 
+          tech: ["Brand Strategy", "Logo Assets", "Visual Systems"]
         }
       ]
     }
@@ -219,14 +219,14 @@ export default function Page() {
     <>
       <Navbar />
       <main className="w-full pb-16 bg-surface-container/10 relative overflow-x-clip">
-        
+
         {/* Hero Section with AI Visual Integration */}
         <section className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden">
           <ThreeHeroBg />
           <div className="absolute top-10 left-1/4 w-[350px] h-[350px] bg-secondary/10 rounded-full filter blur-[80px] -z-10 pointer-events-none animate-pulse duration-[8000ms]"></div>
           <div className="absolute bottom-10 right-1/4 w-[300px] h-[300px] bg-indigo-500/5 rounded-full filter blur-[70px] -z-10 pointer-events-none animate-pulse duration-[6000ms]"></div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-xl items-center">
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center">
             <div className="col-span-12 lg:col-span-7 flex flex-col gap-lg z-10">
               <span className="gsap-hero-animate font-sans text-xs uppercase tracking-widest bg-gradient-to-r from-secondary to-[#6366F1] text-transparent bg-clip-text font-bold block mb-xs">
                 Capabilities Directory
@@ -239,17 +239,17 @@ export default function Page() {
                 We deliver technical excellence across the entire software lifecycle. Our services are architected for scalability, security, and measurable business impact, executed with Swiss-level precision.
               </p>
             </div>
-            
+
             <div className="col-span-12 lg:col-span-5 z-10">
-              <div 
-                className="gsap-hero-animate w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl relative overflow-hidden bg-surface-container-low group shadow-lg hover:shadow-xl transition-all duration-500 gsap-image-reveal cursor-pointer"
+              <div
+                className="w-full aspect-[16/10] border border-neutral-200/80 rounded-2xl relative overflow-hidden bg-surface-container-low group shadow-lg hover:shadow-xl transition-all duration-500 gsap-image-reveal cursor-pointer"
                 onMouseMove={handleCardMouseMove}
                 onMouseLeave={handleCardMouseLeave}
               >
-                <img 
-                  alt="Marketing team collaborating in a modern office setting" 
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03] rounded-2xl" 
-                  src="/images/services_hero_visual.png" 
+                <img
+                  alt="Marketing team collaborating in a modern office setting"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.03] rounded-2xl"
+                  src="/images/services_hero_visual.png"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none rounded-2xl" />
                 <div className="absolute bottom-4 left-4 bg-surface/90 backdrop-blur-md px-4 py-1.5 border border-neutral-200/80 font-sans text-xs uppercase font-bold rounded-full shadow-sm">Team Collaboration</div>
@@ -272,8 +272,8 @@ export default function Page() {
 
           <div className="service-horizontal-scroll-content flex gap-xl px-margin-mobile md:px-[8vw] w-max items-center h-[60vh]">
             {corePillars.map((pillar, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`w-[85vw] md:w-[45vw] lg:w-[36vw] shrink-0 h-[50vh] min-h-[360px] border border-neutral-800 p-lg md:p-xl bg-neutral-900 flex flex-col justify-between shadow-[0_15px_40px_rgba(0,0,0,0.3)] ${pillar.border} transition-colors duration-500 group relative overflow-hidden rounded-3xl`}
                 onMouseMove={handleCardMouseMove}
                 onMouseLeave={handleCardMouseLeave}
@@ -289,7 +289,7 @@ export default function Page() {
                   <h3 className="font-display text-2xl font-bold uppercase text-white mb-md">{pillar.title}</h3>
                   <p className="font-sans text-xs md:text-sm text-neutral-300 leading-relaxed leading-6">{pillar.desc}</p>
                 </div>
-                
+
                 <div className="border-t border-neutral-800 pt-md mt-md flex justify-between items-center">
                   <span className="font-display text-3xl font-extrabold text-neutral-600 group-hover:text-secondary transition-colors duration-500">{pillar.step}</span>
                   <span className="material-symbols-outlined text-neutral-500 group-hover:text-secondary group-hover:translate-x-1 transition-all duration-300">arrow_right_alt</span>
@@ -315,7 +315,7 @@ export default function Page() {
             </div>
 
             {servicesCatalog.map((catalog, cIdx) => (
-              <div key={cIdx} className="grid grid-cols-1 lg:grid-cols-12 gap-xl border-t border-neutral-200/60 pt-12 gsap-slide-up">
+              <div key={cIdx} className="grid grid-cols-1 lg:grid-cols-12 border-t border-neutral-200/60 pt-12 gsap-slide-up">
                 {/* Category info */}
                 <div className="col-span-12 lg:col-span-4 flex flex-col gap-md lg:pr-6">
                   <div className="flex items-center gap-sm">
@@ -332,7 +332,7 @@ export default function Page() {
                 {/* Category items grid */}
                 <div className="col-span-12 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-md">
                   {catalog.items.map((item, iIdx) => (
-                    <Link 
+                    <Link
                       key={iIdx}
                       href={item.link}
                       className="group border border-neutral-200/80 bg-white p-lg rounded-2xl shadow-sm hover:shadow-[0_8px_30px_rgba(203,41,87,0.06)] hover:border-secondary/40 transition-all duration-300 flex flex-col justify-between min-h-[200px] cursor-pointer"
@@ -394,8 +394,8 @@ export default function Page() {
               </div>
             </div>
             <div className="relative z-10 shrink-0 gsap-scale-in">
-              <Link 
-                className="accent-bg px-[32px] py-[16px] font-sans text-xs uppercase tracking-widest hover:bg-white hover:text-primary transition-all border border-transparent hover:border-primary inline-flex items-center gap-2 font-bold text-center rounded-full shadow-md hover:scale-[1.02] active:scale-[0.98]" 
+              <Link
+                className="accent-bg px-[32px] py-[16px] font-sans text-xs uppercase tracking-widest hover:bg-white hover:text-primary transition-all border border-transparent hover:border-primary inline-flex items-center gap-2 font-bold text-center rounded-full shadow-md hover:scale-[1.02] active:scale-[0.98]"
                 href="/contact"
               >
                 Book Architecture Audit <span className="material-symbols-outlined">arrow_forward</span>

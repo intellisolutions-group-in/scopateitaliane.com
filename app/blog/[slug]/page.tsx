@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import React from "react";
-import { getPostBySlug, allPosts } from "../blogData";
+import { getPostBySlug, allPosts, featuredPost } from "../blogData";
 import BlogDetailClient from "./BlogDetailClient";
 import { notFound } from "next/navigation";
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return [featuredPost, ...allPosts].map((post) => ({
     slug: post.slug,
   }));
 }

@@ -66,7 +66,7 @@ export default function Page() {
     <>
       <Navbar />
 
-      <main className="flex-grow w-full max-w-container-max mx-auto px-margin-desktop pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col gap-huge bg-surface-container/10 relative overflow-hidden">
+      <main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-28 pb-16 md:pt-36 md:pb-24 flex flex-col gap-huge bg-surface-container/10 relative overflow-hidden">
         <ThreeHeroBg />
 
         {/* Featured Analysis Section - Only visible on first page of All Insights */}
@@ -93,7 +93,7 @@ export default function Page() {
                 <span className="">•</span>
                 <span className="">{featuredPost.readTime}</span>
               </div>
-              <h1 className="gsap-hero-animate font-headline-xl text-headline-xl text-primary leading-tight group-hover:text-secondary transition-colors">
+              <h1 className="gsap-hero-animate font-headline text-3xl md:text-4xl lg:text-headline-xl font-bold text-primary leading-tight group-hover:text-secondary transition-colors">
                 {featuredPost.title}
               </h1>
               <p className="font-body-lg text-body-lg text-on-surface-variant line-clamp-3">

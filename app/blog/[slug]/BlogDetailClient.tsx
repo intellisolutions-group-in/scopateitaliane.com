@@ -43,7 +43,7 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
         <div className="progress-bar" id="myBar"></div>
       </div>
 
-      <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden bg-surface-container/10">
+      <main className="w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-28 pb-16 md:pt-36 md:pb-24 relative overflow-hidden bg-surface-container/10">
         <ThreeHeroBg />
 
         <header className="max-w-[800px] mx-auto mb-huge z-10 relative">
@@ -51,7 +51,7 @@ export default function BlogDetailClient({ post, relatedPosts }: BlogDetailClien
             <span className="font-label-sm text-label-sm uppercase text-secondary px-sm py-xs border border-secondary bg-white font-bold">{post.category}</span>
             <span className="font-label-sm text-label-sm text-on-surface-variant font-bold">{post.readTime}</span>
           </div>
-          <h1 className="gsap-hero-animate font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-xl leading-tight">{post.title}</h1>
+          <h1 className="gsap-hero-animate font-display text-4xl md:text-5xl lg:text-display-lg font-bold tracking-tighter text-primary mb-xl leading-tight">{post.title}</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant mb-xl border-l-2 border-neutral-200/80 pl-md">
             {post.desc}
           </p>
