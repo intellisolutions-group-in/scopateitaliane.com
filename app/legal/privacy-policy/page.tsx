@@ -19,9 +19,9 @@ export default function Page() {
             <h2 className="font-display text-xs uppercase tracking-widest text-on-surface-variant mb-md font-bold">Contents</h2>
             <div className="flex flex-col gap-sm">
               {contents.map((item) => (
-                <a 
-                  key={item.id} 
-                  href={`#${item.id}`} 
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
                   className="font-sans text-xs uppercase tracking-widest text-primary hover:text-secondary font-semibold border-b border-transparent hover:border-secondary/40 pb-1"
                 >
                   {item.label}
@@ -34,7 +34,7 @@ export default function Page() {
         <div className="w-full md:w-9/12 bg-white p-xl md:p-xxl border border-neutral-200/80">
           <div className="mb-xxl border-b border-neutral-200/80 pb-lg">
             <h1 className="gsap-hero-animate font-display text-3xl md:text-display-lg uppercase font-bold tracking-tighter text-primary mb-sm leading-tight">Privacy Policy</h1>
-            <p className="font-sans text-xs text-on-surface-variant uppercase font-bold">Last Updated: October 24, 2023</p>
+            {/* <p className="font-sans text-xs text-on-surface-variant uppercase font-bold">Last Updated: October 24, 2023</p> */}
           </div>
           <article className="prose prose-slate max-w-none space-y-xl">
             <section id="introduction" className="scroll-mt-[100px]">
@@ -45,7 +45,7 @@ export default function Page() {
                 Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
               </p>
             </section>
-            
+
             <section id="data-collection" className="scroll-mt-[100px] border-t border-neutral-200/80 pt-xl">
               <h2 className="font-display text-xl font-bold uppercase text-primary mb-md">1. Data Collection</h2>
               <p className="font-sans text-sm text-on-surface-variant mb-md leading-relaxed">
@@ -57,7 +57,7 @@ export default function Page() {
                 <li><strong>Device Data:</strong> Information about your computer, phone, tablet, or other device you use to access the Services.</li>
               </ul>
             </section>
-            
+
             <section id="security" className="scroll-mt-[100px] border-t border-neutral-200/80 pt-xl">
               <h2 className="font-display text-xl font-bold uppercase text-primary mb-md">2. Security Measures</h2>
               <p className="font-sans text-sm text-on-surface-variant mb-md leading-relaxed">
@@ -70,7 +70,7 @@ export default function Page() {
                 </p>
               </div>
             </section>
-            
+
             <section id="your-rights" className="scroll-mt-[100px] border-t border-neutral-200/80 pt-xl">
               <h2 className="font-display text-xl font-bold uppercase text-primary mb-md">3. Your Rights</h2>
               <p className="font-sans text-sm text-on-surface-variant mb-md leading-relaxed">

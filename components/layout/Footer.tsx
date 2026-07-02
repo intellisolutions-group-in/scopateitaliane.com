@@ -30,34 +30,48 @@ export default function Footer() {
 
         </div>
 
-        {/* Solutions Link Column */}
-        <div className="col-span-1 md:col-span-2 flex flex-col gap-sm">
+        {/* Solutions Link Column - Expanded to 2 columns to fit all services */}
+        <div className="col-span-1 md:col-span-4 flex flex-col gap-sm">
           <span className="font-display text-xs font-bold uppercase tracking-wider text-white mb-xs flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CB2957]"></span>
             Solutions
           </span>
-          {[
-            { label: "Strategic Consulting", href: "/services/it-consulting" },
-            { label: "Cloud Architecture", href: "/services/cloud-infrastructure" },
-            { label: "Cybersecurity", href: "/services/cybersecurity" }
-          ].map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="font-sans text-xs text-neutral-400 hover:text-[#CB2957] transition-all hover:translate-x-1 duration-200"
-            >
-              {item.label}
-            </Link>
-          ))}
-          {/* AI Solutions with visual dot */}
-          <div className="flex items-center gap-2 group mt-0.5">
-            <Link
-              href="/services/ai-machine-learning"
-              className="font-sans text-xs text-neutral-400 group-hover:text-[#CB2957] transition-all group-hover:translate-x-1 duration-200"
-            >
-              AI Solutions
-            </Link>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#CB2957] animate-pulse shadow-[0_0_8px_rgba(203,41,87,0.6)]"></span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-sm">
+            {[
+              { label: "Website Development", href: "/services/website-development" },
+              { label: "Mobile App Development", href: "/services/mobile-app-development" },
+              { label: "UI/UX Design", href: "/services/ui-ux-design" },
+              { label: "Strategic Consulting", href: "/services/it-consulting" },
+              { label: "Cloud Architecture", href: "/services/cloud-infrastructure" },
+              { label: "Cybersecurity", href: "/services/cybersecurity" },
+              { label: "Data Analytics & BI", href: "/services/data-analytics-bi" },
+              { label: "DevOps & CI/CD", href: "/services/devops-cicd" },
+              { label: "Custom ERP", href: "/services/custom-erp" },
+              { label: "Custom CRM", href: "/services/custom-crm" },
+              { label: "Hosting & Gateway", href: "/services/hosting-gateway" },
+              { label: "Digital Marketing", href: "/services/digital-marketing" },
+              { label: "SEO", href: "/services/seo" },
+              { label: "Google Ads", href: "/services/google-ads" },
+              { label: "Branding", href: "/services/branding" }
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="font-sans text-xs text-neutral-400 hover:text-[#CB2957] transition-all hover:translate-x-1 duration-200"
+              >
+                {item.label}
+              </Link>
+            ))}
+            {/* AI Solutions with visual dot */}
+            <div className="flex items-center gap-2 group mt-0.5">
+              <Link
+                href="/services/ai-machine-learning"
+                className="font-sans text-xs text-neutral-400 group-hover:text-[#CB2957] transition-all group-hover:translate-x-1 duration-200"
+              >
+                AI Solutions
+              </Link>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#CB2957] animate-pulse shadow-[0_0_8px_rgba(203,41,87,0.6)]"></span>
+            </div>
           </div>
         </div>
 
@@ -93,6 +107,7 @@ export default function Footer() {
             { label: "About Us", href: "/about" },
             { label: "Careers", href: "/careers" },
             { label: "Blogs & Case Studies", href: "/blog" },
+            { label: "Contact Us", href: "/contact" },
             { label: "Privacy Policy", href: "/legal/privacy-policy" }
           ].map((item) => (
             <Link
@@ -104,9 +119,6 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-
-        {/* Empty col spacer */}
-        <div className="col-span-1 md:col-span-2" />
 
       </div>
 
